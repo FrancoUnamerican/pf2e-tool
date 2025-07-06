@@ -1,0 +1,930 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+body {
+    font-family: 'Crimson Text', 'Times New Roman', serif;
+    background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc0 100%);
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(160, 82, 45, 0.08) 0%, transparent 50%);
+    color: #2c1810;
+    line-height: 1.4;
+    min-height: 100vh;
+}
+
+/* App Container */
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "header"
+        "main";
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #faf8f3;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    border: 4px solid #8b4513;
+    border-radius: 12px;
+    position: relative;
+}
+
+.app-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #d4af37, #b8860b, #cd853f, #daa520);
+    border-radius: 14px;
+    z-index: -1;
+}
+
+/* Header */
+.app-header {
+    grid-area: header;
+    background: linear-gradient(135deg, #8b4513, #a0522d);
+    padding: 1.5rem 2rem;
+    border-bottom: 3px solid #654321;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.app-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255,255,255,0.05) 10px,
+        rgba(255,255,255,0.05) 20px
+    );
+    opacity: 0.6;
+}
+
+.app-header h1 {
+    color: #f4f1e8;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #d4af37;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    font-family: 'Crimson Text', serif;
+    position: relative;
+    z-index: 1;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.tab-button {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    border: 2px solid #8b4513;
+    color: #2c1810;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+    position: relative;
+}
+
+.tab-button:hover {
+    background: linear-gradient(135deg, #daa520, #cd853f);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, #f4f1e8, #e8dcc0);
+    color: #8b4513;
+    box-shadow: inset 0 3px 8px rgba(0,0,0,0.2);
+    transform: translateY(0);
+}
+
+/* Main Content */
+.main-content {
+    grid-area: main;
+    padding: 2rem;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #faf8f3, #f4f1e8);
+    border-radius: 0 0 8px 8px;
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Character Creator */
+.character-creator-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Creation Steps - Pathfinder Style */
+.creation-steps {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #e8dcc0, #d4c4a0);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f4f1e8, #e8dcc0);
+    border-radius: 8px;
+    border: 2px solid #8b4513;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-width: 120px;
+    position: relative;
+}
+
+.step::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #d4af37, #b8860b);
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.step.active::before {
+    opacity: 1;
+}
+
+.step.active {
+    background: linear-gradient(135deg, #fff, #f4f1e8);
+    color: #8b4513;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(-3px);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #8b4513, #654321);
+    color: #f4f1e8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    border: 3px solid #d4af37;
+    transition: all 0.3s ease;
+    font-family: 'Cinzel', serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.step.active .step-number {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #2c1810;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+.step-title {
+    font-size: 0.95rem;
+    color: #654321;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+}
+
+.step.active .step-title {
+    color: #8b4513;
+    font-weight: 700;
+}
+
+/* Creation Content - Character Sheet Style */
+.creation-content {
+    background: linear-gradient(135deg, #faf8f3, #f4f1e8);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    min-height: 500px;
+    box-shadow: 
+        inset 0 2px 8px rgba(0,0,0,0.1),
+        0 4px 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.creation-content::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.creation-step {
+    display: none;
+}
+
+.creation-step.active {
+    display: block;
+}
+
+.creation-step h2 {
+    color: #8b4513;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 0.5rem;
+}
+
+/* Step Description */
+.step-description {
+    text-align: center;
+    color: #654321;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* Selection Grid - Character Sheet Boxes */
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.selection-card {
+    background: linear-gradient(135deg, #fff, #f9f7f4);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.selection-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #d4af37, #b8860b, #cd853f, #daa520);
+    border-radius: 15px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.selection-card:hover::before {
+    opacity: 0.7;
+}
+
+.selection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.selection-card.selected {
+    background: linear-gradient(135deg, #f4f1e8, #e8dcc0);
+    border-color: #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.selection-card.selected::before {
+    opacity: 1;
+}
+
+.selection-card h3 {
+    color: #8b4513;
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+}
+
+.selection-card p {
+    color: #654321;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.selection-card .traits {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.trait {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #2c1810;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px solid #8b4513;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+}
+
+/* Details Form - Character Sheet Fields */
+.details-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #fff, #f9f7f4);
+    border: 2px solid #8b4513;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.form-group label {
+    color: #8b4513;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.form-group input,
+.form-group select {
+    background: linear-gradient(135deg, #faf8f3, #f4f1e8);
+    border: 2px solid #d4af37;
+    border-radius: 6px;
+    padding: 0.8rem;
+    color: #2c1810;
+    font-size: 1rem;
+    font-family: 'Crimson Text', serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #8b4513;
+    background: linear-gradient(135deg, #fff, #f9f7f4);
+    box-shadow: 0 0 10px rgba(139, 69, 19, 0.3);
+}
+
+/* Ability Scores - Classic D&D Style */
+.ability-scores-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.points-remaining {
+    text-align: center;
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #2c1810;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 3px solid #8b4513;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.points-remaining h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.ability-scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.ability-score {
+    background: linear-gradient(135deg, #fff, #f9f7f4);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ability-score::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.ability-score:hover {
+    border-color: #d4af37;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.ability-score label {
+    display: block;
+    color: #8b4513;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ability-description {
+    font-size: 0.9rem;
+    color: #654321;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.score-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.score-btn {
+    background: linear-gradient(135deg, #8b4513, #654321);
+    color: #f4f1e8;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.4rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+}
+
+.score-btn:hover {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #2c1810;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+.score-btn:disabled {
+    background: linear-gradient(135deg, #999, #666);
+    border-color: #999;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.score-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8b4513;
+    min-width: 50px;
+    background: linear-gradient(135deg, #f4f1e8, #e8dcc0);
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.score-modifier {
+    font-size: 1.1rem;
+    color: #654321;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(135deg, #e8dcc0, #d4c4a0);
+    border: 1px solid #8b4513;
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+}
+
+/* Creation Controls - Medieval Buttons */
+.creation-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e8dcc0, #d4c4a0);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: 3px solid #8b4513;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #2c1810;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #daa520, #cd853f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #8b4513, #654321);
+    color: #f4f1e8;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #a0522d, #8b4513);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #228b22, #006400);
+    color: #f4f1e8;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #32cd32, #228b22);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c82333, #bd2130);
+}
+
+.btn:disabled {
+    background: linear-gradient(135deg, #999, #666);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Step Indicator */
+.step-indicator {
+    background: linear-gradient(135deg, #8b4513, #654321);
+    color: #f4f1e8;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    border: 2px solid #d4af37;
+}
+
+/* Character Summary Panel */
+.character-summary {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background: linear-gradient(135deg, #faf8f3, #f4f1e8);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.character-summary h3 {
+    color: #8b4513;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 0.5rem;
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.8rem;
+    background: linear-gradient(135deg, #fff, #f9f7f4);
+    border: 1px solid #d4af37;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.summary-item label {
+    color: #8b4513;
+    font-weight: 600;
+    font-family: 'Cinzel', serif;
+}
+
+.summary-item span {
+    color: #2c1810;
+    font-weight: 500;
+}
+
+/* Tools Grid */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tool-card {
+    background: linear-gradient(135deg, #fff, #f9f7f4);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tool-card h3 {
+    color: #8b4513;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.dice-roller {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.btn-dice {
+    background: linear-gradient(135deg, #8b4513, #654321);
+    color: #f4f1e8;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.btn-dice:hover {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #2c1810;
+}
+
+.dice-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c1810;
+    display: none;
+}
+
+/* Rules Sections */
+.rules-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.rule-section {
+    background: linear-gradient(135deg, #fff, #f9f7f4);
+    border: 3px solid #8b4513;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.rule-section h3 {
+    color: #8b4513;
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.rule-section ol {
+    padding-left: 1.5rem;
+}
+
+.rule-section li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.ability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.ability-info {
+    background: linear-gradient(135deg, #f4f1e8, #e8dcc0);
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.ability-info h4 {
+    color: #8b4513;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 0.5rem;
+}
+
+.ability-info p {
+    font-size: 0.9rem;
+    color: #654321;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    color: #8b4513;
+    font-size: 1.2rem;
+    padding: 3rem;
+    font-family: 'Cinzel', serif;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .app-container {
+        margin: 10px;
+        border-radius: 8px;
+    }
+    
+    .character-summary {
+        position: relative;
+        width: 100%;
+        top: 0;
+        right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .creation-steps {
+        flex-wrap: wrap;
+    }
+    
+    .step {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-header {
+        padding: 1rem;
+    }
+    
+    .app-header h1 {
+        font-size: 2rem;
+    }
+    
+    .tabs {
+        flex-wrap: wrap;
+        gap: 0.3rem;
+    }
+    
+    .tab-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .creation-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .creation-content {
+        padding: 1rem;
+    }
+    
+    .details-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .ability-scores {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .ability-scores {
+        grid-template-columns: 1fr;
+    }
+    
+    .creation-controls {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .selection-grid {
+        grid-template-columns: 1fr;
+    }
+}

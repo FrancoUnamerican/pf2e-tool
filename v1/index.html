@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperMegaPF2EApp - Character Creator</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>SuperMegaPF2EApp</h1>
+            <nav class="tabs">
+                <button class="tab-button active" data-tab="character-creator">Character Creator</button>
+                <button class="tab-button" data-tab="character-sheet">Character Sheet</button>
+                <button class="tab-button" data-tab="rules">Rules</button>
+                <button class="tab-button" data-tab="tools">Tools</button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- Character Creator Tab -->
+            <div id="character-creator" class="tab-content active">
+                <div class="character-creator-container">
+                    <div class="creation-steps">
+                        <div class="step active" data-step="1">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Ancestry</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Background</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <span class="step-number">3</span>
+                            <span class="step-title">Class</span>
+                        </div>
+                        <div class="step" data-step="4">
+                            <span class="step-number">4</span>
+                            <span class="step-title">Details</span>
+                        </div>
+                        <div class="step" data-step="5">
+                            <span class="step-number">5</span>
+                            <span class="step-title">Abilities</span>
+                        </div>
+                    </div>
+
+                    <div class="creation-content">
+                        <!-- Step 1: Ancestry Selection -->
+                        <div class="creation-step active" id="step-1">
+                            <h2>Choose Your Ancestry</h2>
+                            <div class="selection-grid" id="ancestry-grid">
+                                <div class="loading">Loading ancestries...</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Background Selection -->
+                        <div class="creation-step" id="step-2">
+                            <h2>Choose Your Background</h2>
+                            <div class="selection-grid" id="background-grid">
+                                <div class="loading">Loading backgrounds...</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Class Selection -->
+                        <div class="creation-step" id="step-3">
+                            <h2>Choose Your Class</h2>
+                            <div class="selection-grid" id="class-grid">
+                                <div class="loading">Loading classes...</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Character Details -->
+                        <div class="creation-step" id="step-4">
+                            <h2>Character Details</h2>
+                            <div class="details-form">
+                                <div class="form-group">
+                                    <label for="char-name">Character Name:</label>
+                                    <input type="text" id="char-name" placeholder="Enter character name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="char-level">Level:</label>
+                                    <select id="char-level">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="char-deity">Deity (Optional):</label>
+                                    <select id="char-deity">
+                                        <option value="">None</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Ability Scores -->
+                        <div class="creation-step" id="step-5">
+                            <h2>Ability Scores</h2>
+                            <div class="ability-scores">
+                                <div class="ability-score">
+                                    <label>Strength</label>
+                                    <div class="score-controls">
+                                        <button class="score-btn" data-ability="str" data-action="decrease">-</button>
+                                        <span class="score-value" id="str-score">10</span>
+                                        <button class="score-btn" data-ability="str" data-action="increase">+</button>
+                                    </div>
+                                    <div class="score-modifier" id="str-modifier">+0</div>
+                                </div>
+                                <div class="ability-score">
+                                    <label>Dexterity</label>
+                                    <div class="score-controls">
+                                        <button class="score-btn" data-ability="dex" data-action="decrease">-</button>
+                                        <span class="score-value" id="dex-score">10</span>
+                                        <button class="score-btn" data-ability="dex" data-action="increase">+</button>
+                                    </div>
+                                    <div class="score-modifier" id="dex-modifier">+0</div>
+                                </div>
+                                <div class="ability-score">
+                                    <label>Constitution</label>
+                                    <div class="score-controls">
+                                        <button class="score-btn" data-ability="con" data-action="decrease">-</button>
+                                        <span class="score-value" id="con-score">10</span>
+                                        <button class="score-btn" data-ability="con" data-action="increase">+</button>
+                                    </div>
+                                    <div class="score-modifier" id="con-modifier">+0</div>
+                                </div>
+                                <div class="ability-score">
+                                    <label>Intelligence</label>
+                                    <div class="score-controls">
+                                        <button class="score-btn" data-ability="int" data-action="decrease">-</button>
+                                        <span class="score-value" id="int-score">10</span>
+                                        <button class="score-btn" data-ability="int" data-action="increase">+</button>
+                                    </div>
+                                    <div class="score-modifier" id="int-modifier">+0</div>
+                                </div>
+                                <div class="ability-score">
+                                    <label>Wisdom</label>
+                                    <div class="score-controls">
+                                        <button class="score-btn" data-ability="wis" data-action="decrease">-</button>
+                                        <span class="score-value" id="wis-score">10</span>
+                                        <button class="score-btn" data-ability="wis" data-action="increase">+</button>
+                                    </div>
+                                    <div class="score-modifier" id="wis-modifier">+0</div>
+                                </div>
+                                <div class="ability-score">
+                                    <label>Charisma</label>
+                                    <div class="score-controls">
+                                        <button class="score-btn" data-ability="cha" data-action="decrease">-</button>
+                                        <span class="score-value" id="cha-score">10</span>
+                                        <button class="score-btn" data-ability="cha" data-action="increase">+</button>
+                                    </div>
+                                    <div class="score-modifier" id="cha-modifier">+0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="creation-controls">
+                        <button id="prev-step" class="btn btn-secondary" disabled>Previous</button>
+                        <button id="next-step" class="btn btn-primary">Next</button>
+                        <button id="finish-character" class="btn btn-success" style="display: none;">Finish Character</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Character Sheet Tab -->
+            <div id="character-sheet" class="tab-content">
+                <div class="character-sheet-container">
+                    <h2>Character Sheet</h2>
+                    <p>Character sheet functionality will be added here.</p>
+                </div>
+            </div>
+
+            <!-- Rules Tab -->
+            <div id="rules" class="tab-content">
+                <div class="rules-container">
+                    <h2>Rules Reference</h2>
+                    <p>Rules reference functionality will be added here.</p>
+                </div>
+            </div>
+
+            <!-- Tools Tab -->
+            <div id="tools" class="tab-content">
+                <div class="tools-container">
+                    <h2>Tools & Utilities</h2>
+                    <p>Tools and utilities functionality will be added here.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Character Summary Sidebar -->
+        <aside class="character-summary">
+            <h3>Character Summary</h3>
+            <div class="summary-content">
+                <div class="summary-item">
+                    <label>Name:</label>
+                    <span id="summary-name">-</span>
+                </div>
+                <div class="summary-item">
+                    <label>Ancestry:</label>
+                    <span id="summary-ancestry">-</span>
+                </div>
+                <div class="summary-item">
+                    <label>Background:</label>
+                    <span id="summary-background">-</span>
+                </div>
+                <div class="summary-item">
+                    <label>Class:</label>
+                    <span id="summary-class">-</span>
+                </div>
+                <div class="summary-item">
+                    <label>Level:</label>
+                    <span id="summary-level">1</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/data-loader.js"></script>
+    <script src="js/character-creator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

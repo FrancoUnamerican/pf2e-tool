@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinder 2E Character Creator</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Pathfinder 2E Character Creator</h1>
+            <div class="subtitle">Create your legendary hero</div>
+            <nav class="tabs">
+                <button class="tab-button active" data-tab="character-creator">Character Creator</button>
+                <button class="tab-button" data-tab="character-sheet">Character Sheet</button>
+                <button class="tab-button" data-tab="rules">Rules Reference</button>
+                <button class="tab-button" data-tab="tools">Tools & Dice</button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- Character Creator Tab -->
+            <div id="character-creator" class="tab-content active">
+                <div class="character-creator-container">
+                    <div class="creation-steps">
+                        <div class="step active" data-step="1">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Ancestry</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Background</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <span class="step-number">3</span>
+                            <span class="step-title">Class</span>
+                        </div>
+                        <div class="step" data-step="4">
+                            <span class="step-number">4</span>
+                            <span class="step-title">Details</span>
+                        </div>
+                        <div class="step" data-step="5">
+                            <span class="step-number">5</span>
+                            <span class="step-title">Abilities</span>
+                        </div>
+                    </div>
+
+                    <div class="creation-content">
+                        <!-- Step 1: Ancestry Selection -->
+                        <div class="creation-step active" id="step-1">
+                            <h2>⚔️ Choose Your Ancestry</h2>
+                            <p class="step-description">Your ancestry determines your character's heritage, physical traits, and cultural background.</p>
+                            <div class="selection-grid" id="ancestry-grid">
+                                <div class="loading">Loading ancestries...</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Background Selection -->
+                        <div class="creation-step" id="step-2">
+                            <h2>📜 Choose Your Background</h2>
+                            <p class="step-description">Your background represents your character's life before becoming an adventurer.</p>
+                            <div class="selection-grid" id="background-grid">
+                                <div class="loading">Loading backgrounds...</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Class Selection -->
+                        <div class="creation-step" id="step-3">
+                            <h2>🛡️ Choose Your Class</h2>
+                            <p class="step-description">Your class defines your character's role in the party and primary abilities.</p>
+                            <div class="selection-grid" id="class-grid">
+                                <div class="loading">Loading classes...</div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Character Details -->
+                        <div class="creation-step" id="step-4">
+                            <h2>✨ Character Details</h2>
+                            <p class="step-description">Add the finishing touches to your character's identity.</p>
+                            <div class="details-form">
+                                <div class="form-group">
+                                    <label for="char-name">Character Name:</label>
+                                    <input type="text" id="char-name" placeholder="Enter your hero's name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="char-level">Starting Level:</label>
+                                    <select id="char-level">
+                                        <option value="1">1st Level (Novice)</option>
+                                        <option value="2">2nd Level</option>
+                                        <option value="3">3rd Level</option>
+                                        <option value="4">4th Level</option>
+                                        <option value="5">5th Level</option>
+                                        <option value="6">6th Level</option>
+                                        <option value="7">7th Level</option>
+                                        <option value="8">8th Level</option>
+                                        <option value="9">9th Level</option>
+                                        <option value="10">10th Level (Expert)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="char-deity">Patron Deity (Optional):</label>
+                                    <select id="char-deity">
+                                        <option value="">None / Agnostic</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Ability Scores -->
+                        <div class="creation-step" id="step-5">
+                            <h2>💪 Ability Scores</h2>
+                            <p class="step-description">Distribute your character's fundamental attributes using the point-buy system.</p>
+                            <div class="ability-scores-container">
+                                <div class="points-remaining">
+                                    <h3>Points Remaining: <span id="points-remaining">10</span></h3>
+                                </div>
+                                <div class="ability-scores">
+                                    <div class="ability-score">
+                                        <label>Strength</label>
+                                        <div class="ability-description">Physical power and muscle</div>
+                                        <div class="score-controls">
+                                            <button class="score-btn" data-ability="str" data-action="decrease">−</button>
+                                            <div class="score-display">
+                                                <span class="score-value" id="str-score">10</span>
+                                                <div class="score-modifier" id="str-modifier">+0</div>
+                                            </div>
+                                            <button class="score-btn" data-ability="str" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="ability-score">
+                                        <label>Dexterity</label>
+                                        <div class="ability-description">Agility and reflexes</div>
+                                        <div class="score-controls">
+                                            <button class="score-btn" data-ability="dex" data-action="decrease">−</button>
+                                            <div class="score-display">
+                                                <span class="score-value" id="dex-score">10</span>
+                                                <div class="score-modifier" id="dex-modifier">+0</div>
+                                            </div>
+                                            <button class="score-btn" data-ability="dex" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="ability-score">
+                                        <label>Constitution</label>
+                                        <div class="ability-description">Health and endurance</div>
+                                        <div class="score-controls">
+                                            <button class="score-btn" data-ability="con" data-action="decrease">−</button>
+                                            <div class="score-display">
+                                                <span class="score-value" id="con-score">10</span>
+                                                <div class="score-modifier" id="con-modifier">+0</div>
+                                            </div>
+                                            <button class="score-btn" data-ability="con" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="ability-score">
+                                        <label>Intelligence</label>
+                                        <div class="ability-description">Reasoning and memory</div>
+                                        <div class="score-controls">
+                                            <button class="score-btn" data-ability="int" data-action="decrease">−</button>
+                                            <div class="score-display">
+                                                <span class="score-value" id="int-score">10</span>
+                                                <div class="score-modifier" id="int-modifier">+0</div>
+                                            </div>
+                                            <button class="score-btn" data-ability="int" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="ability-score">
+                                        <label>Wisdom</label>
+                                        <div class="ability-description">Perception and insight</div>
+                                        <div class="score-controls">
+                                            <button class="score-btn" data-ability="wis" data-action="decrease">−</button>
+                                            <div class="score-display">
+                                                <span class="score-value" id="wis-score">10</span>
+                                                <div class="score-modifier" id="wis-modifier">+0</div>
+                                            </div>
+                                            <button class="score-btn" data-ability="wis" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="ability-score">
+                                        <label>Charisma</label>
+                                        <div class="ability-description">Force of personality</div>
+                                        <div class="score-controls">
+                                            <button class="score-btn" data-ability="cha" data-action="decrease">−</button>
+                                            <div class="score-display">
+                                                <span class="score-value" id="cha-score">10</span>
+                                                <div class="score-modifier" id="cha-modifier">+0</div>
+                                            </div>
+                                            <button class="score-btn" data-ability="cha" data-action="increase">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="creation-controls">
+                        <button id="prev-step" class="btn btn-secondary" disabled>⬅️ Previous</button>
+                        <div class="step-indicator">
+                            Step <span id="current-step">1</span> of 5
+                        </div>
+                        <button id="next-step" class="btn btn-primary">Next ➡️</button>
+                        <button id="finish-character" class="btn btn-success" style="display: none;">🎯 Create Character</button>
+                    </div>
+                </div>
+
+                <!-- Character Summary Panel -->
+                <aside class="character-summary">
+                    <h3>⚡ Character Summary</h3>
+                    <div class="summary-content">
+                        <div class="summary-item">
+                            <label>Name:</label>
+                            <span id="summary-name">—</span>
+                        </div>
+                        <div class="summary-item">
+                            <label>Ancestry:</label>
+                            <span id="summary-ancestry">—</span>
+                        </div>
+                        <div class="summary-item">
+                            <label>Background:</label>
+                            <span id="summary-background">—</span>
+                        </div>
+                        <div class="summary-item">
+                            <label>Class:</label>
+                            <span id="summary-class">—</span>
+                        </div>
+                        <div class="summary-item">
+                            <label>Level:</label>
+                            <span id="summary-level">1</span>
+                        </div>
+                        <div class="summary-item">
+                            <label>Deity:</label>
+                            <span id="summary-deity">—</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Character Sheet Tab -->
+            <div id="character-sheet" class="tab-content">
+                <div class="character-sheet-container">
+                    <h2>📋 Character Sheet</h2>
+                    <p>Your completed characters will appear here once created.</p>
+                </div>
+            </div>
+
+            <!-- Rules Tab -->
+            <div id="rules" class="tab-content">
+                <div class="rules-container">
+                    <h2>📚 Rules Reference</h2>
+                    <div class="rules-sections">
+                        <div class="rule-section">
+                            <h3>🎭 Character Creation Overview</h3>
+                            <p>Follow these steps to create your Pathfinder 2E character:</p>
+                            <ol>
+                                <li><strong>Ancestry:</strong> Choose your character's heritage and basic traits</li>
+                                <li><strong>Background:</strong> Select your character's pre-adventuring life</li>
+                                <li><strong>Class:</strong> Pick your character's adventuring profession</li>
+                                <li><strong>Details:</strong> Name your character and choose a deity</li>
+                                <li><strong>Abilities:</strong> Assign your character's core attributes</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="rule-section">
+                            <h3>⚡ Ability Scores</h3>
+                            <div class="ability-grid">
+                                <div class="ability-info">
+                                    <h4>💪 Strength</h4>
+                                    <p>Melee attacks, damage, Athletics</p>
+                                </div>
+                                <div class="ability-info">
+                                    <h4>🏃 Dexterity</h4>
+                                    <p>Ranged attacks, AC, Reflex saves</p>
+                                </div>
+                                <div class="ability-info">
+                                    <h4>❤️ Constitution</h4>
+                                    <p>Hit points, Fortitude saves</p>
+                                </div>
+                                <div class="ability-info">
+                                    <h4>🧠 Intelligence</h4>
+                                    <p>Skills, languages, knowledge</p>
+                                </div>
+                                <div class="ability-info">
+                                    <h4>👁️ Wisdom</h4>
+                                    <p>Perception, Will saves, awareness</p>
+                                </div>
+                                <div class="ability-info">
+                                    <h4>🗣️ Charisma</h4>
+                                    <p>Social skills, leadership</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Tab -->
+            <div id="tools" class="tab-content">
+                <div class="tools-container">
+                    <h2>🎲 Tools & Utilities</h2>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h3>🎲 Dice Roller</h3>
+                            <p>Roll dice for various game situations.</p>
+                            <div class="dice-roller">
+                                <button class="btn btn-dice" onclick="app.rollDice(20)">d20</button>
+                                <button class="btn btn-dice" onclick="app.rollDice(12)">d12</button>
+                                <button class="btn btn-dice" onclick="app.rollDice(10)">d10</button>
+                                <button class="btn btn-dice" onclick="app.rollDice(8)">d8</button>
+                                <button class="btn btn-dice" onclick="app.rollDice(6)">d6</button>
+                                <button class="btn btn-dice" onclick="app.rollDice(4)">d4</button>
+                            </div>
+                            <div id="dice-result" class="dice-result"></div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <h3>👥 Character Manager</h3>
+                            <p>Manage your saved characters.</p>
+                            <div class="character-manager">
+                                <button class="btn btn-primary" onclick="app.showCharacterList()">View Characters</button>
+                                <button class="btn btn-secondary" onclick="app.exportAllCharacters()">Export All</button>
+                                <button class="btn btn-danger" onclick="app.clearAllCharacters()">Clear All</button>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <h3>📖 Quick Reference</h3>
+                            <p>Quick access to common rules.</p>
+                            <div class="quick-reference">
+                                <button class="btn btn-primary" onclick="app.showConditions()">Conditions</button>
+                                <button class="btn btn-primary" onclick="app.showActions()">Actions</button>
+                                <button class="btn btn-primary" onclick="app.showSkills()">Skills</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/data-loader.js"></script>
+    <script src="js/character-creator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
