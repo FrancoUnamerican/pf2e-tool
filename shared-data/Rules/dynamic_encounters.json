@@ -1,0 +1,14 @@
+{
+  "dynamic_encounters": {
+    "source": "GM Core pg. 78 2.0",
+    "description": "While you can certainly create enjoyable encounters by placing a group of opponents in a square room with little else, you have numerous tools to create encounters that are more interactive and dynamic. These tools can challenge your players to invent new strategies, inspire interesting character decisions, and make your setting richer. No encounter needs to use all of the elements presented here, and not all encounters need more than one or two. The more complex a dynamic encounter is, the longer it takes to run and the more demanding it is. In general, these tools are perfectly suited for boss encounters, for memorable foes, and as a spice to add throughout your campaign however often works best for you and your players."
+  },
+  "hazards_in_combat": {
+    "source": "GM Core pg. 78 2.0",
+    "description": "In isolated encounters where the PCs have plenty of time to recover from hazards' effects, simple hazards can feel more like speed bumps than true challenges. But when combined with other threats, even a simple hazard can be a serious problem. Disabling a hazard is a fun way to give several PCs something fresh and different to do rather than piling on damage."
+  },
+  "evolving_battlefields": {
+    "source": "GM Core pg. 78 2.0",
+    "description": "While some battlefields are relatively static, allowing the PCs and foes to clobber each other until one side wins, complex or evolving battlefields can lead to far more memorable encounters. One of the most straightforward ways to create an evolving battlefield is with dynamic environmental features. Maybe the floating platforms that make up the room's floor shuffle around on their own turn each round, or various points teleport creatures to different locations—possibly between two rooms where separate battles take place simultaneously. These dynamic features have some overlap with complex hazards, though they don't tend to be an opposition or obstacle specifically threatening the PCs. Similarly, a third party in the encounter, perhaps a rampaging monster or a restless spirit, could pose a danger to both sides but potentially benefit either. Whatever you choose, make sure it changes things up and makes the encounter feel more dynamic and different. For instance, raising up a portion of the battlefield that isn't particularly relevant when neither the PCs nor their foes are likely to care is less interesting than raising up the pedestal holding the jewel the PCs and their enemies are trying to recover."
+  }
+}

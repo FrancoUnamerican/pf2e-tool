@@ -1,0 +1,14 @@
+{
+  "encounter_locations": {
+    "source": "GM Core pg. 76 2.0",
+    "description": "Choose compelling settings for your encounters. When encounters take place in a building or lair, the most significant environmental features originate from the occupants, both past and present. Think about their tastes, biology, or wealth. These features could be natural, such as the sickening reek of decay in the lair of a great predator. They could also be alchemical, such as a cloud of poisonous gas, or magical, such as a strange electric current that arcs through the walls and occasionally leaps out at passersby. In some cases, you'll have a location in which an enemy always appears, and you can design your location to suit that specific creature. Other times, an encounter might appear in a variety of places, such as a guard patrol or wandering monster. In these cases, you'll need several terrain and structure options so there's something interesting about the environment no matter where the battle takes place."
+  },
+  "maps_and_terrain": {
+    "source": "GM Core pg. 76 2.0",
+    "description": "Creatures often build their lairs in places where they have a terrain advantage, either because they can use special environmental features their enemies must avoid them, or because they are unaffected by them. A kobold in their lair might bait a PC into walking into a trap the kobold avoided. Marshland may be troublesome terrain for most PCs, but it poses little inconvenience to amphibious creatures. When using creatures with the ability to burrow, climb, or swim, consider incorporating features such as mazelike corridors, high walls with platforms, or rivers. If the foes are smaller or larger than the PCs, consider including paths, cubbyholes, staircases, or narrow passages that one side of the fight can use more effectively. Sometimes, though, the PCs must defend their own base from intruders. In these situations, you're flipping the script, so give the PCs time to trap and ward the area. Watching the invaders fall prey to hazards and ambushes can be a delightful change of pace for your players."
+  },
+  "wild_weather": {
+    "source": "GM Core pg. 77 2.0",
+    "description": "On a bright, sunny day, the PCs see clearly and fight without obstruction, but adding wind, precipitation, or fog creates additional challenges. You can assign an equivalent monster level for your terrain and factor that into your budget, or just assign extra XP at the end if the threat without terrain is on the low or moderate end."
+  }
+}

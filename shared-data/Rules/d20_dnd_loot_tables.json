@@ -1,0 +1,315 @@
+{
+  "title": "D&D Magical Item Tables",
+  "source": "D&D Reference Book",
+  "description": "Complete magical item generation tables for weapons, armor, and miscellaneous items",
+  "tables": {
+    "weapons": {
+      "title": "Magical Weapons",
+      "description": "Tables for generating magical weapons with bonuses and special abilities",
+      "weaponType": {
+        "tableNumber": "108",
+        "title": "WEAPON TYPE",
+        "rollType": "D20",
+        "weaponTable": [
+          { "roll": "1", "weapon": "Arrow (4d6)" },
+          { "roll": "1", "weapon": "Arrow (3d6)" },
+          { "roll": "1", "weapon": "Arrow (2d6)" },
+          { "roll": "2-3", "weapon": "Axe" },
+          { "roll": "4", "weapon": "Battle axe" },
+          { "roll": "5", "weapon": "Bolt (2d10)" },
+          { "roll": "6", "weapon": "Bolt (2d6)" },
+          { "roll": "7", "weapon": "Bullet, sling (3d4)" },
+          { "roll": "8-12", "weapon": "Dagger" },
+          { "roll": "13", "weapon": "Dart (3d4)" },
+          { "roll": "14", "weapon": "Flail" },
+          { "roll": "15", "weapon": "Javelin (1d2)" },
+          { "roll": "16", "weapon": "Knife" },
+          { "roll": "17", "weapon": "Lance" },
+          { "roll": "18-19", "weapon": "Mace" },
+          { "roll": "20", "weapon": "Special (roll on Table 110)" }
+        ],
+        "weaponSubtype": [
+          { "d20Roll": "1", "weaponResult": "Military Pick" },
+          { "d20Roll": "2", "weaponResult": "Morning Star" },
+          { "d20Roll": "3", "weaponResult": "Pole Arm" },
+          { "d20Roll": "4-5", "weaponResult": "Scimitar" },
+          { "d20Roll": "6-8", "weaponResult": "Spear" },
+          { "d20Roll": "9-17", "weaponResult": "Sword" },
+          { "d20Roll": "18", "weaponResult": "Trident" },
+          { "d20Roll": "19", "weaponResult": "Warhammer" },
+          { "d20Roll": "20", "weaponResult": "Special (roll on Table 110)" }
+        ]
+      },
+      "attackRollAdjustment": {
+        "tableNumber": "109",
+        "title": "ATTACK ROLL ADJUSTMENT",
+        "items": [
+          { "d20Roll": "1-2", "swordAdj": "-1", "axeValue": "", "otherWpnAdj": "-1", "xpValue": "500" },
+          { "d20Roll": "3-10", "swordAdj": "+1", "axeValue": "400", "otherWpnAdj": "+1", "xpValue": "500" },
+          { "d20Roll": "11-14", "swordAdj": "+2", "axeValue": "800", "otherWpnAdj": "+1", "xpValue": "500" },
+          { "d20Roll": "15-17", "swordAdj": "+3", "axeValue": "1,400", "otherWpnAdj": "+2", "xpValue": "1,000" },
+          { "d20Roll": "18-19", "swordAdj": "+4", "axeValue": "2,000", "otherWpnAdj": "+2", "xpValue": "1,000" },
+          { "d20Roll": "20", "swordAdj": "+5", "axeValue": "3,000", "otherWpnAdj": "+3", "xpValue": "2,000" }
+        ]
+      },
+      "specialWeapons": {
+        "tableNumber": "110",
+        "title": "SPECIAL WEAPONS (D10)",
+        "subtableA": {
+          "title": "Subtable A (1-3)",
+          "items": [
+            { "d20Roll": "1", "item": "Arrow of Direction", "xpValue": "2,500" },
+            { "d20Roll": "2", "item": "Arrow of Slaying", "xpValue": "250" },
+            { "d20Roll": "3", "item": "Axe +2, Throwing", "xpValue": "750" },
+            { "d20Roll": "4", "item": "Axe of Hurling", "xpValue": "" },
+            { "d20Roll": "5-6", "item": "Bow +1", "xpValue": "500" },
+            { "d20Roll": "7", "item": "Crossbow of Accuracy, +3", "xpValue": "2,000" },
+            { "d20Roll": "8", "item": "Crossbow of Distance", "xpValue": "1,500" },
+            { "d20Roll": "9", "item": "Crossbow of Speed", "xpValue": "1,500" },
+            { "d20Roll": "10-11", "item": "Dagger +1, +2 vs. Tiny or Small creatures", "xpValue": "300" },
+            { "d20Roll": "12-13", "item": "Dagger +2, +3 vs. larger than man-sized", "xpValue": "300" },
+            { "d20Roll": "14", "item": "Dagger +2, Longtooth", "xpValue": "300" },
+            { "d20Roll": "15", "item": "Dagger of Throwing", "xpValue": "" },
+            { "d20Roll": "16", "item": "Dagger of Venom", "xpValue": "350" },
+            { "d20Roll": "17", "item": "Dart of Homing", "xpValue": "" },
+            { "d20Roll": "18", "item": "Hammer +3, Dwarven Thrower", "xpValue": "450" },
+            { "d20Roll": "19", "item": "Hammer of Thunderbolts", "xpValue": "1,500" },
+            { "d20Roll": "20", "item": "DM's Choice", "xpValue": "2,500" }
+          ]
+        },
+        "subtableB": {
+          "title": "Subtable B (4-6)",
+          "items": [
+            { "d20Roll": "1", "item": "Hornblade", "xpValue": "" },
+            { "d20Roll": "2", "item": "Javelin of Lightning", "xpValue": "250" },
+            { "d20Roll": "3", "item": "Javelin of Piercing", "xpValue": "250" },
+            { "d20Roll": "4-5", "item": "Knife, Buckle", "xpValue": "150" },
+            { "d20Roll": "6-7", "item": "Mace of Disruption", "xpValue": "1,500" },
+            { "d20Roll": "8", "item": "Net of Entrapment", "xpValue": "2,000" },
+            { "d20Roll": "9", "item": "Net of Snaring", "xpValue": "1,500" },
+            { "d20Roll": "10-11", "item": "Quarterstaff, Magical", "xpValue": "1,000" },
+            { "d20Roll": "12", "item": "Scimitar of Speed", "xpValue": "500" },
+            { "d20Roll": "13-14", "item": "Sling of Seeking +2", "xpValue": "" },
+            { "d20Roll": "15", "item": "Spear, Cursed Backbiter", "xpValue": "700" },
+            { "d20Roll": "16", "item": "Trident of Fish Command", "xpValue": "" },
+            { "d20Roll": "17", "item": "Trident of Submission", "xpValue": "500" },
+            { "d20Roll": "18", "item": "Trident of Warning", "xpValue": "1,500" },
+            { "d20Roll": "19", "item": "Trident of Yearning", "xpValue": "1,000" },
+            { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+          ]
+        },
+        "subtableC": {
+          "title": "Subtable C (7-9)",
+          "items": [
+            { "d20Roll": "1", "item": "Sun Blade", "xpValue": "3,000" },
+            { "d20Roll": "2-7", "item": "Sword +1, +2 vs. magic-using & enchanted creatures", "xpValue": "600" },
+            { "d20Roll": "8-10", "item": "Sword +1, +3 vs. lycanthropes & shape-changers", "xpValue": "700" },
+            { "d20Roll": "11-12", "item": "Sword +1, +3 vs. regenerating creatures", "xpValue": "800" },
+            { "d20Roll": "13", "item": "Sword +1, +4 vs. reptiles", "xpValue": "800" },
+            { "d20Roll": "14-15", "item": "Sword +1, Cursed", "xpValue": "500" },
+            { "d20Roll": "16", "item": "Sword +1, Flame Tongue", "xpValue": "1,200" },
+            { "d20Roll": "17", "item": "Sword +1, Luck Blade", "xpValue": "500" },
+            { "d20Roll": "18", "item": "Sword +2, Dragon Slayer", "xpValue": "900" },
+            { "d20Roll": "19", "item": "Sword +2, Giant Slayer", "xpValue": "900" },
+            { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+          ]
+        },
+        "subtableD": {
+          "title": "Subtable D (10)",
+          "items": [
+            { "d20Roll": "1", "item": "Sword +2, Nine Lives Stealer", "xpValue": "1,600" },
+            { "d20Roll": "2-3", "item": "Sword +3, Frost Brand", "xpValue": "1,600" },
+            { "d20Roll": "4", "item": "Sword +4, Defender", "xpValue": "3,000" },
+            { "d20Roll": "5", "item": "Sword +5, Defender", "xpValue": "3,600" },
+            { "d20Roll": "6", "item": "Sword +5, Holy Avenger", "xpValue": "4,000" },
+            { "d20Roll": "7-8", "item": "Sword -2, Cursed", "xpValue": "" },
+            { "d20Roll": "9", "item": "Sword of Dancing", "xpValue": "4,400" },
+            { "d20Roll": "10", "item": "Sword of Life Stealing", "xpValue": "5,000" },
+            { "d20Roll": "11", "item": "Sword of Sharpness", "xpValue": "7,000" },
+            { "d20Roll": "12", "item": "Sword of the Flames", "xpValue": "2,000" },
+            { "d20Roll": "13", "item": "Sword of Wounding", "xpValue": "4,400" },
+            { "d20Roll": "14-16", "item": "Sword, Cursed Berserking", "xpValue": "" },
+            { "d20Roll": "17-18", "item": "Sword, Short, Quickness (+2)", "xpValue": "1,000" },
+            { "d20Roll": "19", "item": "Sword, Vorpal Weapon", "xpValue": "10,000" },
+            { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+          ]
+        }
+      }
+    },
+    "armorAndShields": {
+      "title": "Armor and Shields",
+      "armorType": {
+        "tableNumber": "105",
+        "title": "ARMOR TYPE",
+        "rollType": "D20",
+        "items": [
+          { "roll": "1", "armor": "Banded mail" },
+          { "roll": "2", "armor": "Brigandine" },
+          { "roll": "3-5", "armor": "Chain mail" },
+          { "roll": "6", "armor": "Field plate" },
+          { "roll": "7", "armor": "Full plate" },
+          { "roll": "8", "armor": "Leather" },
+          { "roll": "9-12", "armor": "Plate mail" },
+          { "roll": "13", "armor": "Ring mail" },
+          { "roll": "14", "armor": "Scale mail" },
+          { "roll": "15-17", "armor": "Shield" },
+          { "roll": "18", "armor": "Splint mail" },
+          { "roll": "19", "armor": "Studded leather" },
+          { "roll": "20", "armor": "Special" }
+        ]
+      },
+      "armorClassAdjustment": {
+        "tableNumber": "106",
+        "title": "ARMOR CLASS ADJUSTMENT",
+        "items": [
+          { "d20Roll": "1-2", "acAdj": "-1", "xpValue": "" },
+          { "d20Roll": "3-10", "acAdj": "+1", "xpValue": "500" },
+          { "d20Roll": "11-14", "acAdj": "+2", "xpValue": "1,000" },
+          { "d20Roll": "15-17", "acAdj": "+3", "xpValue": "1,500" },
+          { "d20Roll": "18-19", "acAdj": "+4", "xpValue": "2,000" },
+          { "d20Roll": "20", "acAdj": "+5", "xpValue": "3,000" }
+        ]
+      },
+      "specialArmors": {
+        "tableNumber": "107",
+        "title": "SPECIAL ARMORS",
+        "items": [
+          { "d20Roll": "1-2", "armorType": "Armor of Command", "xpValue": "+1,000" },
+          { "d20Roll": "3-4", "armorType": "Armor of Blending", "xpValue": "+500" },
+          { "d20Roll": "5-6", "armorType": "Armor of Missile Attraction", "xpValue": "" },
+          { "d20Roll": "7-8", "armorType": "Armor of Rage", "xpValue": "+1,000" },
+          { "d20Roll": "9-10", "armorType": "Elven Chain Mail", "xpValue": "5,000" },
+          { "d20Roll": "11-12", "armorType": "Plate Mail of Etherealness", "xpValue": "4,000" },
+          { "d20Roll": "13-14", "armorType": "Plate Mail of Fear", "xpValue": "" },
+          { "d20Roll": "15-16", "armorType": "Plate Mail of Vulnerability", "xpValue": "" },
+          { "d20Roll": "17-18", "armorType": "Shield, Large +1, +4 vs. Missiles", "xpValue": "400" },
+          { "d20Roll": "19-20", "armorType": "Shield -1, Missile Attractor", "xpValue": "" }
+        ]
+      }
+    },
+    "rings": {
+      "title": "Magical Rings",
+      "tableNumber": "91",
+      "rollType": "D6",
+      "subtableA": {
+        "title": "Subtable A (1-4)",
+        "items": [
+          { "d20Roll": "1", "item": "Animal Friendship", "xpValue": "1,000" },
+          { "d20Roll": "2", "item": "Blinking", "xpValue": "1,000" },
+          { "d20Roll": "3", "item": "Chameleon Power", "xpValue": "1,000" },
+          { "d20Roll": "4", "item": "Clumsiness", "xpValue": "" },
+          { "d20Roll": "5", "item": "Contrariness", "xpValue": "" },
+          { "d20Roll": "6-7", "item": "Delusion", "xpValue": "" },
+          { "d20Roll": "8", "item": "Djinni Summoning", "xpValue": "3,000" },
+          { "d20Roll": "9", "item": "Elemental Command", "xpValue": "5,000" },
+          { "d20Roll": "10", "item": "Feather Falling", "xpValue": "1,000" },
+          { "d20Roll": "11", "item": "Fire Resistance", "xpValue": "1,000" },
+          { "d20Roll": "12", "item": "Free Action", "xpValue": "1,000" },
+          { "d20Roll": "13", "item": "Human Influence", "xpValue": "2,000" },
+          { "d20Roll": "14", "item": "Invisibility", "xpValue": "1,500" },
+          { "d20Roll": "15-16", "item": "Jumping", "xpValue": "1,000" },
+          { "d20Roll": "17", "item": "Mammal Control", "xpValue": "1,000" },
+          { "d20Roll": "18", "item": "Mind Shielding", "xpValue": "500" },
+          { "d20Roll": "19", "item": "Protection", "xpValue": "1,000" },
+          { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+        ]
+      },
+      "subtableB": {
+        "title": "Subtable B (5-6)",
+        "items": [
+          { "d20Roll": "1-2", "item": "Protection", "xpValue": "1,000" },
+          { "d20Roll": "3", "item": "Ram, Ring of the", "xpValue": "750" },
+          { "d20Roll": "4", "item": "Regeneration", "xpValue": "5,000" },
+          { "d20Roll": "5", "item": "Shocking Grasp", "xpValue": "1,000" },
+          { "d20Roll": "6", "item": "Shooting Stars", "xpValue": "3,000" },
+          { "d20Roll": "7", "item": "Spell Storing", "xpValue": "2,500" },
+          { "d20Roll": "8", "item": "Spell Turning", "xpValue": "2,000" },
+          { "d20Roll": "9", "item": "Sustenance", "xpValue": "500" },
+          { "d20Roll": "10", "item": "Swimming", "xpValue": "1,000" },
+          { "d20Roll": "11", "item": "Telekinesis", "xpValue": "2,000" },
+          { "d20Roll": "12", "item": "Truth", "xpValue": "1,000" },
+          { "d20Roll": "13", "item": "Warmth", "xpValue": "1,000" },
+          { "d20Roll": "14", "item": "Water Walking", "xpValue": "1,000" },
+          { "d20Roll": "15", "item": "Weakness", "xpValue": "" },
+          { "d20Roll": "16", "item": "Wishes, Multiple", "xpValue": "5,000" },
+          { "d20Roll": "17", "item": "Wishes, Three", "xpValue": "3,000" },
+          { "d20Roll": "18", "item": "Wizardry (Wizard)", "xpValue": "4,000" },
+          { "d20Roll": "19", "item": "X-Ray Vision", "xpValue": "4,000" },
+          { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+        ]
+      }
+    },
+    "rods": {
+      "title": "Magical Rods",
+      "tableNumber": "92",
+      "items": [
+        { "d20Roll": "1-2", "item": "Absorption (Priest, Wizard)", "xpValue": "7,500" },
+        { "d20Roll": "3-4", "item": "Alertness", "xpValue": "7,500" },
+        { "d20Roll": "5", "item": "Beguiling (Priest, Wizard, Rogue)", "xpValue": "5,000" },
+        { "d20Roll": "6-7", "item": "Cancellation", "xpValue": "10,000" },
+        { "d20Roll": "8", "item": "Flailing (Warrior)", "xpValue": "2,000" },
+        { "d20Roll": "9", "item": "Lordly Might (Warrior)", "xpValue": "6,000" },
+        { "d20Roll": "10", "item": "Passage", "xpValue": "5,000" },
+        { "d20Roll": "11", "item": "Resurrection (Priest)", "xpValue": "10,000" },
+        { "d20Roll": "12", "item": "Rulership", "xpValue": "8,000" },
+        { "d20Roll": "13-14", "item": "Security (Priest, Wizard)", "xpValue": "3,000" },
+        { "d20Roll": "15-16", "item": "Smiting (Priest, Wizard)", "xpValue": "4,000" },
+        { "d20Roll": "17", "item": "Splendor", "xpValue": "2,500" },
+        { "d20Roll": "18-19", "item": "Terror", "xpValue": "3,000" },
+        { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+      ]
+    },
+    "staves": {
+      "title": "Magical Staves",
+      "tableNumber": "93",
+      "items": [
+        { "d20Roll": "1-2", "item": "Mace", "xpValue": "1,500" },
+        { "d20Roll": "3", "item": "Command (Priest, Wizard)", "xpValue": "5,000" },
+        { "d20Roll": "4-5", "item": "Curing (Priest)", "xpValue": "6,000" },
+        { "d20Roll": "6", "item": "Magi (Wizard)", "xpValue": "15,000" },
+        { "d20Roll": "7", "item": "Power (Wizard)", "xpValue": "12,000" },
+        { "d20Roll": "8", "item": "Serpent (Priest)", "xpValue": "7,000" },
+        { "d20Roll": "9-10", "item": "Slinging (Priest)", "xpValue": "4,000" },
+        { "d20Roll": "11-12", "item": "Spear", "xpValue": "1,000" },
+        { "d20Roll": "13-14", "item": "Striking (Priest, Wizard)", "xpValue": "9,000" },
+        { "d20Roll": "15", "item": "Swarming Insects (Priest, Wizard)", "xpValue": "1,000" },
+        { "d20Roll": "16", "item": "Thunder & Lightning", "xpValue": "8,000" },
+        { "d20Roll": "17-18", "item": "Withering", "xpValue": "8,000" },
+        { "d20Roll": "19", "item": "Woodlands (Druid)", "xpValue": "8,000" },
+        { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+      ]
+    },
+    "wands": {
+      "title": "Magical Wands",
+      "tableNumber": "94",
+      "items": [
+        { "d20Roll": "1", "item": "Conjuration (Wizard)", "xpValue": "7,000" },
+        { "d20Roll": "2", "item": "Earth and Stone", "xpValue": "1,000" },
+        { "d20Roll": "3", "item": "Enemy Detection", "xpValue": "2,000" },
+        { "d20Roll": "4", "item": "Fear (Priest, Wizard)", "xpValue": "3,000" },
+        { "d20Roll": "5", "item": "Fire (Wizard)", "xpValue": "4,500" },
+        { "d20Roll": "6", "item": "Flame Extinguishing", "xpValue": "1,500" },
+        { "d20Roll": "7", "item": "Frost (Wizard)", "xpValue": "6,000" },
+        { "d20Roll": "8", "item": "Illumination", "xpValue": "2,000" },
+        { "d20Roll": "9", "item": "Illusion (Wizard)", "xpValue": "3,000" },
+        { "d20Roll": "10", "item": "Lightning (Wizard)", "xpValue": "4,000" },
+        { "d20Roll": "11", "item": "Magic Detection", "xpValue": "2,500" },
+        { "d20Roll": "12", "item": "Magic Missiles", "xpValue": "4,000" },
+        { "d20Roll": "13", "item": "Metal and Mineral Detection", "xpValue": "1,500" },
+        { "d20Roll": "14", "item": "Negation", "xpValue": "3,500" },
+        { "d20Roll": "15", "item": "Paralyzation (Wizard)", "xpValue": "3,500" },
+        { "d20Roll": "16", "item": "Polymorphing (Wizard)", "xpValue": "3,500" },
+        { "d20Roll": "17", "item": "Secret Door and Trap Location", "xpValue": "5,000" },
+        { "d20Roll": "18", "item": "Size Alteration", "xpValue": "3,000" },
+        { "d20Roll": "19", "item": "Wonder", "xpValue": "6,000" },
+        { "d20Roll": "20", "item": "DM's Choice", "xpValue": "" }
+      ]
+    }
+  },
+  "notes": {
+    "xpValue": "Experience Point Value - items with no XP value are typically cursed",
+    "classRestrictions": "Items marked with class names in parentheses are restricted to those classes",
+    "cursedItems": "Items with no XP value are typically cursed or have negative effects",
+    "dmChoice": "DM's Choice entries allow the Dungeon Master to select appropriate items"
+  }
+}

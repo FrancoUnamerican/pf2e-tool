@@ -1,0 +1,11 @@
+{
+  "encounter_composition": {
+    "description": "The number of creatures per encounter and their levels should vary. Higher-level single enemies, squads of enemies, and large numbers of lackeys all feel different."
+  },
+  "setup": {
+    "description": "Not all encounters should start and end the same way. PCs might sneak up on unprepared enemies, get ambushed by foes hunting them, enter into a formal duel, or find a diplomatic overture fails and turns into a fight. On the other side, enemies might all be taken out, retreat, beg for mercy, or even shift the encounter to a chase or other phase."
+  },
+  "information": {
+    "description": "Uncertainty can increase the tension and sense of danger the players feel. Ambushes, fights against unknown foes or foes behind battlements, and other scenarios can create this basic uncertainty."
+  }
+}

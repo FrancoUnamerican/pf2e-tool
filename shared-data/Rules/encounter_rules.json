@@ -1,0 +1,27 @@
+[
+  {
+    "threat": "Trivial",
+    "xp_budget": 40,
+    "character_adjustment": 10
+  },
+  {
+    "threat": "Low",
+    "xp_budget": 60,
+    "character_adjustment": 20
+  },
+  {
+    "threat": "Moderate",
+    "xp_budget": 80,
+    "character_adjustment": 20
+  },
+  {
+    "threat": "Severe",
+    "xp_budget": 120,
+    "character_adjustment": 30
+  },
+  {
+    "threat": "Extreme",
+    "xp_budget": 160,
+    "character_adjustment": 40
+  }
+]

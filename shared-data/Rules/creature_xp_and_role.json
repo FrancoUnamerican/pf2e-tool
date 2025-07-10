@@ -1,0 +1,47 @@
+[
+  {
+    "creature_level_offset": -4,
+    "xp": 10,
+    "suggested_role": "Low-threat lackey"
+  },
+  {
+    "creature_level_offset": -3,
+    "xp": 15,
+    "suggested_role": "Low- or moderate-threat lackey"
+  },
+  {
+    "creature_level_offset": -2,
+    "xp": 20,
+    "suggested_role": "Any lackey or standard creature"
+  },
+  {
+    "creature_level_offset": -1,
+    "xp": 30,
+    "suggested_role": "Any standard creature"
+  },
+  {
+    "creature_level_offset": 0,
+    "xp": 40,
+    "suggested_role": "Any standard creature or low-threat boss"
+  },
+  {
+    "creature_level_offset": 1,
+    "xp": 60,
+    "suggested_role": "Low- or moderate-threat boss"
+  },
+  {
+    "creature_level_offset": 2,
+    "xp": 80,
+    "suggested_role": "Moderate- or severe-threat boss"
+  },
+  {
+    "creature_level_offset": 3,
+    "xp": 120,
+    "suggested_role": "Severe- or extreme-threat boss"
+  },
+  {
+    "creature_level_offset": 4,
+    "xp": 160,
+    "suggested_role": "Extreme-threat solo boss"
+  }
+]

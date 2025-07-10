@@ -1,0 +1,154 @@
+{
+  "animal": {
+    "natural_components": [
+      {"item_name": "Wolf Pelt", "description": "A thick, grey wolf pelt.", "value": 5, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Bear Claw", "description": "A sharp, formidable bear claw.", "value": 8, "rarity": "uncommon", "type": "material", "item_level": 2},
+      {"item_name": "Spider Venom Sac", "description": "A sac filled with potent spider venom.", "value": 15, "rarity": "rare", "type": "material", "item_level": 3}
+    ],
+    "consumables": [
+      {"item_name": "Berries", "description": "Wild berries, edible but not very filling.", "value": 1, "rarity": "common", "type": "consumable", "item_level": 1},
+      {"item_name": "Mushrooms", "description": "Edible wild mushrooms.", "value": 2, "rarity": "common", "type": "consumable", "item_level": 1},
+      {"item_name": "Herbs", "description": "Common medicinal herbs.", "value": 3, "rarity": "common", "type": "consumable", "item_level": 1}
+    ]
+  },
+  "humanoid": {
+    "mundane_gear": [
+      {"item_name": "Rusty Shortsword", "description": "A poorly maintained shortsword.", "value": 10, "rarity": "common", "type": "weapon", "item_level": 1},
+      {"item_name": "Leather Armor", "description": "Simple leather armor, well-worn.", "value": 15, "rarity": "common", "type": "armor", "item_level": 1},
+      {"item_name": "Coins (Copper)", "description": "A small pouch of copper coins.", "value": 10, "rarity": "common", "type": "currency", "item_level": 1},
+      {"item_name": "Torch", "description": "A standard wooden torch.", "value": 0.1, "rarity": "common", "type": "tool", "item_level": 1},
+      {"item_name": "Rope", "description": "50 feet of hempen rope.", "value": 1, "rarity": "common", "type": "tool", "item_level": 1}
+    ],
+    "magical_items": [
+      {"item_name": "Potion of Healing (Minor)", "description": "A minor potion that restores a small amount of health.", "value": 20, "rarity": "uncommon", "type": "consumable", "item_level": 2},
+      {"item_name": "Scroll of Light", "description": "A scroll containing the 'Light' cantrip.", "value": 10, "rarity": "common", "type": "scroll", "item_level": 1},
+      {"item_name": "Wand of Magic Missile (1 charge)", "description": "A wand with a single charge of Magic Missile.", "value": 50, "rarity": "rare", "type": "wand", "item_level": 3}
+    ],
+    "treasure": [
+      {"item_name": "Silver Pieces", "description": "A handful of silver coins.", "value": 50, "rarity": "common", "type": "currency", "item_level": 1},
+      {"item_name": "Small Gemstone", "description": "A small, uncut gemstone.", "value": 25, "rarity": "uncommon", "type": "gem", "item_level": 2}
+    ]
+  },
+  "construct": {
+    "components": [
+      {"item_name": "Scrap Metal", "description": "Assorted pieces of metal scrap.", "value": 1, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Gears", "description": "Various sized gears from a mechanism.", "value": 3, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Wires", "description": "Coils of copper and iron wire.", "value": 2, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Broken Lens", "description": "A shattered optical lens.", "value": 5, "rarity": "uncommon", "type": "material", "item_level": 2}
+    ],
+    "rare_materials": [
+      {"item_name": "Adamantine Dust", "description": "Fine dust of adamantine, very valuable.", "value": 100, "rarity": "rare", "type": "material", "item_level": 5},
+      {"item_name": "Mithral Shavings", "description": "Lightweight mithral shavings.", "value": 75, "rarity": "rare", "type": "material", "item_level": 4},
+      {"item_name": "Orichalcum Fragment", "description": "A small, glowing fragment of orichalcum.", "value": 200, "rarity": "very rare", "type": "material", "item_level": 7}
+    ]
+  },
+  "dragon": {
+    "treasure": [
+      {"item_name": "Gold Coins", "description": "A large pile of gold coins.", "value": 1000, "rarity": "common", "type": "currency", "item_level": 1},
+      {"item_name": "Large Gemstone", "description": "A large, flawless gemstone.", "value": 500, "rarity": "rare", "type": "gem", "item_level": 5},
+      {"item_name": "Jeweled Goblet", "description": "An ornate goblet encrusted with jewels.", "value": 750, "rarity": "rare", "type": "art_object", "item_level": 6},
+      {"item_name": "Art Object", "description": "A valuable piece of ancient art.", "value": 300, "rarity": "uncommon", "type": "art_object", "item_level": 4}
+    ],
+    "magical_items": [
+      {"item_name": "Dragon's Breath Potion", "description": "A potion that grants a temporary breath weapon.", "value": 250, "rarity": "rare", "type": "consumable", "item_level": 5},
+      {"item_name": "Ring of Fire Resistance", "description": "A ring that grants resistance to fire damage.", "value": 800, "rarity": "very rare", "type": "ring", "item_level": 8},
+      {"item_name": "Dragon Scale Armor (Unfinished)", "description": "Pieces of dragon scales, suitable for crafting armor.", "value": 1500, "rarity": "legendary", "type": "armor_material", "item_level": 10}
+    ],
+    "rare_materials": [
+      {"item_name": "Dragon Scale", "description": "A single, tough dragon scale.", "value": 50, "rarity": "uncommon", "type": "material", "item_level": 3},
+      {"item_name": "Dragon Bone", "description": "A fragment of dragon bone.", "value": 75, "rarity": "uncommon", "type": "material", "item_level": 4},
+      {"item_name": "Dragon Blood", "description": "A vial of potent dragon blood.", "value": 100, "rarity": "rare", "type": "material", "item_level": 5}
+    ]
+  },
+  "fey": {
+    "natural_components": [
+      {"item_name": "Glimmerdust", "description": "Sparkling dust from a fey creature.", "value": 10, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Fey Bloom", "description": "A flower with vibrant, unnatural colors.", "value": 12, "rarity": "uncommon", "type": "material", "item_level": 2},
+      {"item_name": "Enchanted Twig", "description": "A twig imbued with minor fey magic.", "value": 8, "rarity": "common", "type": "material", "item_level": 1}
+    ],
+    "magical_items": [
+      {"item_name": "Charm of Illusions", "description": "A small charm that can create minor illusions.", "value": 75, "rarity": "uncommon", "type": "charm", "item_level": 3},
+      {"item_name": "Feywild Brew", "description": "A sweet, intoxicating brew with minor magical effects.", "value": 30, "rarity": "common", "type": "consumable", "item_level": 2},
+      {"item_name": "Pixie Dust", "description": "A pinch of dust that grants temporary flight.", "value": 100, "rarity": "rare", "type": "consumable", "item_level": 4}
+    ],
+    "treasure": [
+      {"item_name": "Polished Pebbles", "description": "Smooth, colorful pebbles, valued by fey.", "value": 0.5, "rarity": "common", "type": "trinket", "item_level": 1},
+      {"item_name": "Shiny Buttons", "description": "Assorted shiny buttons, collected by fey.", "value": 0.2, "rarity": "common", "type": "trinket", "item_level": 1}
+    ]
+  },
+  "undead": {
+    "mundane_gear": [
+      {"item_name": "Tattered Robes", "description": "Old, decaying robes.", "value": 0.5, "rarity": "common", "type": "armor", "item_level": 1},
+      {"item_name": "Rusty Dagger", "description": "A corroded dagger.", "value": 2, "rarity": "common", "type": "weapon", "item_level": 1}
+    ],
+    "components": [
+      {"item_name": "Bone Shard", "description": "A fragment of bone from an undead creature.", "value": 1, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Grave Dirt", "description": "Dirt from a haunted grave.", "value": 0.1, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Ectoplasm", "description": "A ghostly, viscous substance.", "value": 10, "rarity": "uncommon", "type": "material", "item_level": 2}
+    ],
+    "treasure": [
+      {"item_name": "Ancient Coin", "description": "A coin from a bygone era.", "value": 5, "rarity": "uncommon", "type": "currency", "item_level": 2},
+      {"item_name": "Mausoleum Key", "description": "A heavy, ornate key to a mausoleum.", "value": 8, "rarity": "uncommon", "type": "key", "item_level": 2}
+    ]
+  },
+  "aberration": {
+    "components": [
+      {"item_name": "Aberrant Flesh", "description": "Pulsating, unnatural flesh.", "value": 20, "rarity": "uncommon", "type": "material", "item_level": 3},
+      {"item_name": "Chitin Plate", "description": "A hard, alien chitinous plate.", "value": 15, "rarity": "uncommon", "type": "material", "item_level": 3},
+      {"item_name": "Mutated Organ", "description": "A strange, malformed organ.", "value": 30, "rarity": "rare", "type": "material", "item_level": 4}
+    ],
+    "rare_materials": [
+      {"item_name": "Void Shard", "description": "A fragment of solidified void energy.", "value": 150, "rarity": "rare", "type": "material", "item_level": 7},
+      {"item_name": "Psionic Crystal", "description": "A crystal that hums with psychic energy.", "value": 120, "rarity": "rare", "type": "material", "item_level": 6}
+    ]
+  },
+  "elemental": {
+    "components": [
+      {"item_name": "Elemental Core (Minor)", "description": "A small, unstable elemental core.", "value": 25, "rarity": "uncommon", "type": "material", "item_level": 3},
+      {"item_name": "Elemental Dust", "description": "Dust imbued with elemental energy.", "value": 5, "rarity": "common", "type": "material", "item_level": 1}
+    ],
+    "rare_materials": [
+      {"item_name": "Condensed Air", "description": "A solid chunk of compressed air.", "value": 80, "rarity": "rare", "type": "material", "item_level": 4},
+      {"item_name": "Pure Earth", "description": "A handful of perfectly pure earth.", "value": 70, "rarity": "rare", "type": "material", "item_level": 4},
+      {"item_name": "Liquid Flame", "description": "A vial of constantly burning liquid.", "value": 90, "rarity": "rare", "type": "material", "item_level": 4},
+      {"item_name": "Solid Water", "description": "A piece of water frozen by elemental magic.", "value": 85, "rarity": "rare", "type": "material", "item_level": 4}
+    ]
+  },
+  "giant": {
+    "mundane_gear": [
+      {"item_name": "Giant's Club", "description": "A massive, crude wooden club.", "value": 20, "rarity": "common", "type": "weapon", "item_level": 2},
+      {"item_name": "Rough Hide Armor", "description": "Thick, untanned hide armor.", "value": 25, "rarity": "common", "type": "armor", "item_level": 2},
+      {"item_name": "Large Sack of Rations", "description": "A sack containing enough coarse rations for several days.", "value": 5, "rarity": "common", "type": "consumable", "item_level": 1}
+    ],
+    "treasure": [
+      {"item_name": "Crude Gold Nugget", "description": "An unrefined lump of gold.", "value": 100, "rarity": "uncommon", "type": "currency", "item_level": 3},
+      {"item_name": "Stolen Jewelry", "description": "A collection of mismatched, stolen jewelry.", "value": 150, "rarity": "uncommon", "type": "jewelry", "item_level": 4}
+    ]
+  },
+  "plant": {
+    "natural_components": [
+      {"item_name": "Vibrant Leaf", "description": "A leaf glowing with natural energy.", "value": 5, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Strong Vine", "description": "A durable, flexible vine.", "value": 2, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Healing Sap", "description": "Viscous sap with minor healing properties.", "value": 8, "rarity": "uncommon", "type": "consumable", "item_level": 2}
+    ],
+    "consumables": [
+      {"item_name": "Nutritious Berry", "description": "A large, sweet berry that provides sustenance.", "value": 3, "rarity": "common", "type": "consumable", "item_level": 1},
+      {"item_name": "Restorative Mushroom", "description": "A mushroom that helps recover from fatigue.", "value": 6, "rarity": "uncommon", "type": "consumable", "item_level": 2}
+    ]
+  },
+  "vermin": {
+    "natural_components": [
+      {"item_name": "Chitin", "description": "A piece of hard, insectoid exoskeleton.", "value": 1, "rarity": "common", "type": "material", "item_level": 1},
+      {"item_name": "Poison Gland", "description": "A gland containing mild venom.", "value": 10, "rarity": "uncommon", "type": "material", "item_level": 2},
+      {"item_name": "Silk", "description": "Strong, sticky spider silk.", "value": 3, "rarity": "common", "type": "material", "item_level": 1}
+    ]
+  },
+  "other": {
+    "mundane_gear": [
+      {"item_name": "Random Junk", "description": "A collection of useless odds and ends.", "value": 0.1, "rarity": "common", "type": "trinket", "item_level": 1}
+    ],
+    "treasure": [
+      {"item_name": "Peculiar Trinket", "description": "A strange, unidentifiable trinket.", "value": 5, "rarity": "uncommon", "type": "trinket", "item_level": 1}
+    ]
+  }
+}

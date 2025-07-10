@@ -1,0 +1,380 @@
+{
+  "title": "Treasure per Level Table",
+  "description": "Total treasure amounts by character level and encounter difficulty",
+  "treasureByLevel": [
+    {
+      "level": 1,
+      "totalTreasure": "175 gp",
+      "totalTreasureValue": 175,
+      "byDifficulty": {
+        "low": "13 gp",
+        "lowValue": 13,
+        "moderate": "18 gp",
+        "moderateValue": 18,
+        "severe": "26 gp",
+        "severeValue": 26,
+        "extreme": "35 gp",
+        "extremeValue": 35,
+        "extraTreasure": "35 gp",
+        "extraTreasureValue": 35
+      }
+    },
+    {
+      "level": 2,
+      "totalTreasure": "300 gp",
+      "totalTreasureValue": 300,
+      "byDifficulty": {
+        "low": "23 gp",
+        "lowValue": 23,
+        "moderate": "30 gp",
+        "moderateValue": 30,
+        "severe": "45 gp",
+        "severeValue": 45,
+        "extreme": "60 gp",
+        "extremeValue": 60,
+        "extraTreasure": "60 gp",
+        "extraTreasureValue": 60
+      }
+    },
+    {
+      "level": 3,
+      "totalTreasure": "500 gp",
+      "totalTreasureValue": 500,
+      "byDifficulty": {
+        "low": "38 gp",
+        "lowValue": 38,
+        "moderate": "50 gp",
+        "moderateValue": 50,
+        "severe": "75 gp",
+        "severeValue": 75,
+        "extreme": "100 gp",
+        "extremeValue": 100,
+        "extraTreasure": "100 gp",
+        "extraTreasureValue": 100
+      }
+    },
+    {
+      "level": 4,
+      "totalTreasure": "850 gp",
+      "totalTreasureValue": 850,
+      "byDifficulty": {
+        "low": "65 gp",
+        "lowValue": 65,
+        "moderate": "85 gp",
+        "moderateValue": 85,
+        "severe": "130 gp",
+        "severeValue": 130,
+        "extreme": "170 gp",
+        "extremeValue": 170,
+        "extraTreasure": "170 gp",
+        "extraTreasureValue": 170
+      }
+    },
+    {
+      "level": 5,
+      "totalTreasure": "1,350 gp",
+      "totalTreasureValue": 1350,
+      "byDifficulty": {
+        "low": "100 gp",
+        "lowValue": 100,
+        "moderate": "135 gp",
+        "moderateValue": 135,
+        "severe": "200 gp",
+        "severeValue": 200,
+        "extreme": "270 gp",
+        "extremeValue": 270,
+        "extraTreasure": "270 gp",
+        "extraTreasureValue": 270
+      }
+    },
+    {
+      "level": 6,
+      "totalTreasure": "2,000 gp",
+      "totalTreasureValue": 2000,
+      "byDifficulty": {
+        "low": "150 gp",
+        "lowValue": 150,
+        "moderate": "200 gp",
+        "moderateValue": 200,
+        "severe": "300 gp",
+        "severeValue": 300,
+        "extreme": "400 gp",
+        "extremeValue": 400,
+        "extraTreasure": "400 gp",
+        "extraTreasureValue": 400
+      }
+    },
+    {
+      "level": 7,
+      "totalTreasure": "2,900 gp",
+      "totalTreasureValue": 2900,
+      "byDifficulty": {
+        "low": "220 gp",
+        "lowValue": 220,
+        "moderate": "290 gp",
+        "moderateValue": 290,
+        "severe": "440 gp",
+        "severeValue": 440,
+        "extreme": "580 gp",
+        "extremeValue": 580,
+        "extraTreasure": "580 gp",
+        "extraTreasureValue": 580
+      }
+    },
+    {
+      "level": 8,
+      "totalTreasure": "4,000 gp",
+      "totalTreasureValue": 4000,
+      "byDifficulty": {
+        "low": "300 gp",
+        "lowValue": 300,
+        "moderate": "400 gp",
+        "moderateValue": 400,
+        "severe": "600 gp",
+        "severeValue": 600,
+        "extreme": "800 gp",
+        "extremeValue": 800,
+        "extraTreasure": "800 gp",
+        "extraTreasureValue": 800
+      }
+    },
+    {
+      "level": 9,
+      "totalTreasure": "5,700 gp",
+      "totalTreasureValue": 5700,
+      "byDifficulty": {
+        "low": "430 gp",
+        "lowValue": 430,
+        "moderate": "570 gp",
+        "moderateValue": 570,
+        "severe": "860 gp",
+        "severeValue": 860,
+        "extreme": "1,140 gp",
+        "extremeValue": 1140,
+        "extraTreasure": "1,140 gp",
+        "extraTreasureValue": 1140
+      }
+    },
+    {
+      "level": 10,
+      "totalTreasure": "8,000 gp",
+      "totalTreasureValue": 8000,
+      "byDifficulty": {
+        "low": "600 gp",
+        "lowValue": 600,
+        "moderate": "800 gp",
+        "moderateValue": 800,
+        "severe": "1,200 gp",
+        "severeValue": 1200,
+        "extreme": "1,600 gp",
+        "extremeValue": 1600,
+        "extraTreasure": "1,600 gp",
+        "extraTreasureValue": 1600
+      }
+    },
+    {
+      "level": 11,
+      "totalTreasure": "11,500 gp",
+      "totalTreasureValue": 11500,
+      "byDifficulty": {
+        "low": "865 gp",
+        "lowValue": 865,
+        "moderate": "1,150 gp",
+        "moderateValue": 1150,
+        "severe": "1,725 gp",
+        "severeValue": 1725,
+        "extreme": "2,300 gp",
+        "extremeValue": 2300,
+        "extraTreasure": "2,300 gp",
+        "extraTreasureValue": 2300
+      }
+    },
+    {
+      "level": 12,
+      "totalTreasure": "16,500 gp",
+      "totalTreasureValue": 16500,
+      "byDifficulty": {
+        "low": "1,250 gp",
+        "lowValue": 1250,
+        "moderate": "1,650 gp",
+        "moderateValue": 1650,
+        "severe": "2,475 gp",
+        "severeValue": 2475,
+        "extreme": "3,300 gp",
+        "extremeValue": 3300,
+        "extraTreasure": "3,300 gp",
+        "extraTreasureValue": 3300
+      }
+    },
+    {
+      "level": 13,
+      "totalTreasure": "25,000 gp",
+      "totalTreasureValue": 25000,
+      "byDifficulty": {
+        "low": "1,875 gp",
+        "lowValue": 1875,
+        "moderate": "2,500 gp",
+        "moderateValue": 2500,
+        "severe": "3,750 gp",
+        "severeValue": 3750,
+        "extreme": "5,000 gp",
+        "extremeValue": 5000,
+        "extraTreasure": "5,000 gp",
+        "extraTreasureValue": 5000
+      }
+    },
+    {
+      "level": 14,
+      "totalTreasure": "36,500 gp",
+      "totalTreasureValue": 36500,
+      "byDifficulty": {
+        "low": "2,750 gp",
+        "lowValue": 2750,
+        "moderate": "3,650 gp",
+        "moderateValue": 3650,
+        "severe": "5,500 gp",
+        "severeValue": 5500,
+        "extreme": "7,300 gp",
+        "extremeValue": 7300,
+        "extraTreasure": "7,300 gp",
+        "extraTreasureValue": 7300
+      }
+    },
+    {
+      "level": 15,
+      "totalTreasure": "54,500 gp",
+      "totalTreasureValue": 54500,
+      "byDifficulty": {
+        "low": "4,100 gp",
+        "lowValue": 4100,
+        "moderate": "5,450 gp",
+        "moderateValue": 5450,
+        "severe": "8,200 gp",
+        "severeValue": 8200,
+        "extreme": "10,900 gp",
+        "extremeValue": 10900,
+        "extraTreasure": "10,900 gp",
+        "extraTreasureValue": 10900
+      }
+    },
+    {
+      "level": 16,
+      "totalTreasure": "82,500 gp",
+      "totalTreasureValue": 82500,
+      "byDifficulty": {
+        "low": "6,200 gp",
+        "lowValue": 6200,
+        "moderate": "8,250 gp",
+        "moderateValue": 8250,
+        "severe": "12,400 gp",
+        "severeValue": 12400,
+        "extreme": "16,500 gp",
+        "extremeValue": 16500,
+        "extraTreasure": "16,500 gp",
+        "extraTreasureValue": 16500
+      }
+    },
+    {
+      "level": 17,
+      "totalTreasure": "128,000 gp",
+      "totalTreasureValue": 128000,
+      "byDifficulty": {
+        "low": "9,600 gp",
+        "lowValue": 9600,
+        "moderate": "12,800 gp",
+        "moderateValue": 12800,
+        "severe": "19,200 gp",
+        "severeValue": 19200,
+        "extreme": "25,600 gp",
+        "extremeValue": 25600,
+        "extraTreasure": "25,600 gp",
+        "extraTreasureValue": 25600
+      }
+    },
+    {
+      "level": 18,
+      "totalTreasure": "208,000 gp",
+      "totalTreasureValue": 208000,
+      "byDifficulty": {
+        "low": "15,600 gp",
+        "lowValue": 15600,
+        "moderate": "20,800 gp",
+        "moderateValue": 20800,
+        "severe": "31,200 gp",
+        "severeValue": 31200,
+        "extreme": "41,600 gp",
+        "extremeValue": 41600,
+        "extraTreasure": "41,600 gp",
+        "extraTreasureValue": 41600
+      }
+    },
+    {
+      "level": 19,
+      "totalTreasure": "355,000 gp",
+      "totalTreasureValue": 355000,
+      "byDifficulty": {
+        "low": "26,600 gp",
+        "lowValue": 26600,
+        "moderate": "35,500 gp",
+        "moderateValue": 35500,
+        "severe": "53,250 gp",
+        "severeValue": 53250,
+        "extreme": "71,000 gp",
+        "extremeValue": 71000,
+        "extraTreasure": "71,000 gp",
+        "extraTreasureValue": 71000
+      }
+    },
+    {
+      "level": 20,
+      "totalTreasure": "490,000 gp",
+      "totalTreasureValue": 490000,
+      "byDifficulty": {
+        "low": "36,800 gp",
+        "lowValue": 36800,
+        "moderate": "49,000 gp",
+        "moderateValue": 49000,
+        "severe": "73,500 gp",
+        "severeValue": 73500,
+        "extreme": "98,000 gp",
+        "extremeValue": 98000,
+        "extraTreasure": "98,000 gp",
+        "extraTreasureValue": 98000
+      }
+    }
+  ],
+  "metadata": {
+    "difficultyLevels": [
+      {
+        "name": "low",
+        "description": "Low difficulty encounters"
+      },
+      {
+        "name": "moderate", 
+        "description": "Moderate difficulty encounters"
+      },
+      {
+        "name": "severe",
+        "description": "Severe difficulty encounters"
+      },
+      {
+        "name": "extreme",
+        "description": "Extreme difficulty encounters"
+      },
+      {
+        "name": "extraTreasure",
+        "description": "Additional treasure rewards"
+      }
+    ],
+    "currency": "gp",
+    "levelRange": {
+      "min": 1,
+      "max": 20
+    },
+    "notes": [
+      "Total treasure represents cumulative wealth expected by level",
+      "Difficulty-based values are per encounter rewards",
+      "Extra treasure column represents bonus rewards"
+    ]
+  }
+}

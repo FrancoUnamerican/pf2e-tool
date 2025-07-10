@@ -1,0 +1,47 @@
+[
+  {
+    "level_adjustment": -4,
+    "xp": 10,
+    "role": "Low-threat lackey"
+  },
+  {
+    "level_adjustment": -3,
+    "xp": 15,
+    "role": "Low- or moderate-threat lackey"
+  },
+  {
+    "level_adjustment": -2,
+    "xp": 20,
+    "role": "Any lackey or standard creature"
+  },
+  {
+    "level_adjustment": -1,
+    "xp": 30,
+    "role": "Any standard creature"
+  },
+  {
+    "level_adjustment": 0,
+    "xp": 40,
+    "role": "Any standard creature or low-threat boss"
+  },
+  {
+    "level_adjustment": 1,
+    "xp": 60,
+    "role": "Low- or moderate-threat boss"
+  },
+  {
+    "level_adjustment": 2,
+    "xp": 80,
+    "role": "Moderate- or severe-threat boss"
+  },
+  {
+    "level_adjustment": 3,
+    "xp": 120,
+    "role": "Severe- or extreme-threat boss"
+  },
+  {
+    "level_adjustment": 4,
+    "xp": 160,
+    "role": "Extreme-threat solo boss"
+  }
+]

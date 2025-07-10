@@ -1,0 +1,471 @@
+{
+  "title": "Treasure by Level - Items and Currency",
+  "description": "Character wealth progression including permanent items, consumables, and currency by level",
+  "treasureProgression": [
+    {
+      "level": 1,
+      "totalValue": "175 gp",
+      "totalValueNumeric": 175,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 2, "quantity": 2 },
+          { "itemLevel": 1, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 2, "quantity": 2 },
+          { "itemLevel": 1, "quantity": 3 }
+        ]
+      },
+      "partyCurrency": "40 gp",
+      "partyCurrencyNumeric": 40,
+      "currencyPerAdditionalPC": "10 gp",
+      "currencyPerAdditionalPCNumeric": 10
+    },
+    {
+      "level": 2,
+      "totalValue": "300 gp",
+      "totalValueNumeric": 300,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 3, "quantity": 2 },
+          { "itemLevel": 2, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 3, "quantity": 2 },
+          { "itemLevel": 2, "quantity": 2 },
+          { "itemLevel": 1, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "70 gp",
+      "partyCurrencyNumeric": 70,
+      "currencyPerAdditionalPC": "18 gp",
+      "currencyPerAdditionalPCNumeric": 18
+    },
+    {
+      "level": 3,
+      "totalValue": "500 gp",
+      "totalValueNumeric": 500,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 4, "quantity": 2 },
+          { "itemLevel": 3, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 4, "quantity": 2 },
+          { "itemLevel": 3, "quantity": 2 },
+          { "itemLevel": 2, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "120 gp",
+      "partyCurrencyNumeric": 120,
+      "currencyPerAdditionalPC": "30 gp",
+      "currencyPerAdditionalPCNumeric": 30
+    },
+    {
+      "level": 4,
+      "totalValue": "850 gp",
+      "totalValueNumeric": 850,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 5, "quantity": 2 },
+          { "itemLevel": 4, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 5, "quantity": 2 },
+          { "itemLevel": 4, "quantity": 2 },
+          { "itemLevel": 3, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "200 gp",
+      "partyCurrencyNumeric": 200,
+      "currencyPerAdditionalPC": "50 gp",
+      "currencyPerAdditionalPCNumeric": 50
+    },
+    {
+      "level": 5,
+      "totalValue": "1,350 gp",
+      "totalValueNumeric": 1350,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 6, "quantity": 2 },
+          { "itemLevel": 5, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 6, "quantity": 2 },
+          { "itemLevel": 5, "quantity": 2 },
+          { "itemLevel": 4, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "320 gp",
+      "partyCurrencyNumeric": 320,
+      "currencyPerAdditionalPC": "80 gp",
+      "currencyPerAdditionalPCNumeric": 80
+    },
+    {
+      "level": 6,
+      "totalValue": "2,000 gp",
+      "totalValueNumeric": 2000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 7, "quantity": 2 },
+          { "itemLevel": 6, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 7, "quantity": 2 },
+          { "itemLevel": 6, "quantity": 2 },
+          { "itemLevel": 5, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "500 gp",
+      "partyCurrencyNumeric": 500,
+      "currencyPerAdditionalPC": "125 gp",
+      "currencyPerAdditionalPCNumeric": 125
+    },
+    {
+      "level": 7,
+      "totalValue": "2,900 gp",
+      "totalValueNumeric": 2900,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 8, "quantity": 2 },
+          { "itemLevel": 7, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 8, "quantity": 2 },
+          { "itemLevel": 7, "quantity": 2 },
+          { "itemLevel": 6, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "720 gp",
+      "partyCurrencyNumeric": 720,
+      "currencyPerAdditionalPC": "180 gp",
+      "currencyPerAdditionalPCNumeric": 180
+    },
+    {
+      "level": 8,
+      "totalValue": "4,000 gp",
+      "totalValueNumeric": 4000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 9, "quantity": 2 },
+          { "itemLevel": 8, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 9, "quantity": 2 },
+          { "itemLevel": 8, "quantity": 2 },
+          { "itemLevel": 7, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "1,000 gp",
+      "partyCurrencyNumeric": 1000,
+      "currencyPerAdditionalPC": "250 gp",
+      "currencyPerAdditionalPCNumeric": 250
+    },
+    {
+      "level": 9,
+      "totalValue": "5,700 gp",
+      "totalValueNumeric": 5700,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 10, "quantity": 2 },
+          { "itemLevel": 9, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 10, "quantity": 2 },
+          { "itemLevel": 9, "quantity": 2 },
+          { "itemLevel": 8, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "1,400 gp",
+      "partyCurrencyNumeric": 1400,
+      "currencyPerAdditionalPC": "350 gp",
+      "currencyPerAdditionalPCNumeric": 350
+    },
+    {
+      "level": 10,
+      "totalValue": "8,000 gp",
+      "totalValueNumeric": 8000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 11, "quantity": 2 },
+          { "itemLevel": 10, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 11, "quantity": 2 },
+          { "itemLevel": 10, "quantity": 2 },
+          { "itemLevel": 9, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "2,000 gp",
+      "partyCurrencyNumeric": 2000,
+      "currencyPerAdditionalPC": "500 gp",
+      "currencyPerAdditionalPCNumeric": 500
+    },
+    {
+      "level": 11,
+      "totalValue": "11,500 gp",
+      "totalValueNumeric": 11500,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 12, "quantity": 2 },
+          { "itemLevel": 11, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 12, "quantity": 2 },
+          { "itemLevel": 11, "quantity": 2 },
+          { "itemLevel": 10, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "2,800 gp",
+      "partyCurrencyNumeric": 2800,
+      "currencyPerAdditionalPC": "700 gp",
+      "currencyPerAdditionalPCNumeric": 700
+    },
+    {
+      "level": 12,
+      "totalValue": "16,500 gp",
+      "totalValueNumeric": 16500,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 13, "quantity": 2 },
+          { "itemLevel": 12, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 13, "quantity": 2 },
+          { "itemLevel": 12, "quantity": 2 },
+          { "itemLevel": 11, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "4,000 gp",
+      "partyCurrencyNumeric": 4000,
+      "currencyPerAdditionalPC": "1,000 gp",
+      "currencyPerAdditionalPCNumeric": 1000
+    },
+    {
+      "level": 13,
+      "totalValue": "25,000 gp",
+      "totalValueNumeric": 25000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 14, "quantity": 2 },
+          { "itemLevel": 13, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 14, "quantity": 2 },
+          { "itemLevel": 13, "quantity": 2 },
+          { "itemLevel": 12, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "6,000 gp",
+      "partyCurrencyNumeric": 6000,
+      "currencyPerAdditionalPC": "1,500 gp",
+      "currencyPerAdditionalPCNumeric": 1500
+    },
+    {
+      "level": 14,
+      "totalValue": "36,500 gp",
+      "totalValueNumeric": 36500,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 15, "quantity": 2 },
+          { "itemLevel": 14, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 15, "quantity": 2 },
+          { "itemLevel": 14, "quantity": 2 },
+          { "itemLevel": 13, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "9,000 gp",
+      "partyCurrencyNumeric": 9000,
+      "currencyPerAdditionalPC": "2,250 gp",
+      "currencyPerAdditionalPCNumeric": 2250
+    },
+    {
+      "level": 15,
+      "totalValue": "54,500 gp",
+      "totalValueNumeric": 54500,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 16, "quantity": 2 },
+          { "itemLevel": 15, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 16, "quantity": 2 },
+          { "itemLevel": 15, "quantity": 2 },
+          { "itemLevel": 14, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "13,000 gp",
+      "partyCurrencyNumeric": 13000,
+      "currencyPerAdditionalPC": "3,250 gp",
+      "currencyPerAdditionalPCNumeric": 3250
+    },
+    {
+      "level": 16,
+      "totalValue": "82,500 gp",
+      "totalValueNumeric": 82500,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 17, "quantity": 2 },
+          { "itemLevel": 16, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 17, "quantity": 2 },
+          { "itemLevel": 16, "quantity": 2 },
+          { "itemLevel": 15, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "20,000 gp",
+      "partyCurrencyNumeric": 20000,
+      "currencyPerAdditionalPC": "5,000 gp",
+      "currencyPerAdditionalPCNumeric": 5000
+    },
+    {
+      "level": 17,
+      "totalValue": "128,000 gp",
+      "totalValueNumeric": 128000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 18, "quantity": 2 },
+          { "itemLevel": 17, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 18, "quantity": 2 },
+          { "itemLevel": 17, "quantity": 2 },
+          { "itemLevel": 16, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "30,000 gp",
+      "partyCurrencyNumeric": 30000,
+      "currencyPerAdditionalPC": "7,500 gp",
+      "currencyPerAdditionalPCNumeric": 7500
+    },
+    {
+      "level": 18,
+      "totalValue": "208,000 gp",
+      "totalValueNumeric": 208000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 19, "quantity": 2 },
+          { "itemLevel": 18, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 19, "quantity": 2 },
+          { "itemLevel": 18, "quantity": 2 },
+          { "itemLevel": 17, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "48,000 gp",
+      "partyCurrencyNumeric": 48000,
+      "currencyPerAdditionalPC": "12,000 gp",
+      "currencyPerAdditionalPCNumeric": 12000
+    },
+    {
+      "level": 19,
+      "totalValue": "355,000 gp",
+      "totalValueNumeric": 355000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 20, "quantity": 2 },
+          { "itemLevel": 19, "quantity": 2 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 20, "quantity": 2 },
+          { "itemLevel": 19, "quantity": 2 },
+          { "itemLevel": 18, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "80,000 gp",
+      "partyCurrencyNumeric": 80000,
+      "currencyPerAdditionalPC": "20,000 gp",
+      "currencyPerAdditionalPCNumeric": 20000
+    },
+    {
+      "level": 20,
+      "totalValue": "490,000 gp",
+      "totalValueNumeric": 490000,
+      "permanentItems": {
+        "itemsByLevel": [
+          { "itemLevel": 20, "quantity": 4 }
+        ]
+      },
+      "consumables": {
+        "itemsByLevel": [
+          { "itemLevel": 20, "quantity": 4 },
+          { "itemLevel": 19, "quantity": 2 }
+        ]
+      },
+      "partyCurrency": "140,000 gp",
+      "partyCurrencyNumeric": 140000,
+      "currencyPerAdditionalPC": "35,000 gp",
+      "currencyPerAdditionalPCNumeric": 35000
+    }
+  ],
+  "metadata": {
+    "itemCategories": [
+      {
+        "name": "permanentItems",
+        "description": "Long-lasting magical items organized by item level"
+      },
+      {
+        "name": "consumables",
+        "description": "Single-use items like potions and scrolls organized by item level"
+      }
+    ],
+    "currency": "gp",
+    "levelRange": {
+      "min": 1,
+      "max": 20
+    },
+    "itemLevelRange": {
+      "min": 1,
+      "max": 20
+    },
+    "notes": [
+      "Total value represents expected character wealth at each level",
+      "Item levels determine the power and rarity of items",
+      "Party currency is shared among all party members",
+      "Currency per additional PC accounts for larger party sizes",
+      "Level 20 has unique item distribution with higher quantities"
+    ]
+  }
+}

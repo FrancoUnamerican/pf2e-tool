@@ -1,0 +1,170 @@
+[
+  {
+    "feature": "Avalanche",
+    "proficiency_dc_band": "Expert–legendary"
+  },
+  {
+    "feature": "Blizzard",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Bog",
+    "proficiency_dc_band": "Untrained-trained"
+  },
+  {
+    "feature": "Canopy",
+    "proficiency_dc_band": "Trained-master"
+  },
+  {
+    "feature": "Chasm",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Cliff",
+    "proficiency_dc_band": "Trained-master"
+  },
+  {
+    "feature": "Collapse",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Crowd",
+    "proficiency_dc_band": "Trained-master"
+  },
+  {
+    "feature": "Current",
+    "proficiency_dc_band": "Trained-master"
+  },
+  {
+    "feature": "Door",
+    "proficiency_dc_band": "See entry"
+  },
+  {
+    "feature": "Earthquake",
+    "proficiency_dc_band": "Trained-legendary"
+  },
+  {
+    "feature": "Flood",
+    "proficiency_dc_band": "Expert-legendary"
+  },
+  {
+    "feature": "Floor",
+    "proficiency_dc_band": "Untrained-expert"
+  },
+  {
+    "feature": "Fog",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Gate",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Guard",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Hedge",
+    "proficiency_dc_band": "Untrained-trained"
+  },
+  {
+    "feature": "Ice",
+    "proficiency_dc_band": "Trained-master"
+  },
+  {
+    "feature": "Lava",
+    "proficiency_dc_band": "Expert-legendary"
+  },
+  {
+    "feature": "Ledge",
+    "proficiency_dc_band": "Untrained-master"
+  },
+  {
+    "feature": "Portcullis",
+    "proficiency_dc_band": "See entry"
+  },
+  {
+    "feature": "Precipitation",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Rooftop",
+    "proficiency_dc_band": "Trained-master"
+  },
+  {
+    "feature": "Rubble",
+    "proficiency_dc_band": "Untrained-expert"
+  },
+  {
+    "feature": "Sand",
+    "proficiency_dc_band": "Untrained-expert"
+  },
+  {
+    "feature": "Sandstorm",
+    "proficiency_dc_band": "Trained-master"
+  },
+  {
+    "feature": "Sewer",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Slope",
+    "proficiency_dc_band": "Untrained-trained"
+  },
+  {
+    "feature": "Snow",
+    "proficiency_dc_band": "Untrained-expert"
+  },
+  {
+    "feature": "Stairs",
+    "proficiency_dc_band": "Untrained-trained"
+  },
+  {
+    "feature": "Stalagmite",
+    "proficiency_dc_band": "Trained-expert"
+  },
+  {
+    "feature": "Street",
+    "proficiency_dc_band": "Untrained-trained"
+  },
+  {
+    "feature": "Temperature",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Tornado",
+    "proficiency_dc_band": "Master-legendary"
+  },
+  {
+    "feature": "Tree",
+    "proficiency_dc_band": "Untrained-master"
+  },
+  {
+    "feature": "Tsunami",
+    "proficiency_dc_band": "Master-legendary"
+  },
+  {
+    "feature": "Undergrowth",
+    "proficiency_dc_band": "Untrained-expert"
+  },
+  {
+    "feature": "Underwater Visibility",
+    "proficiency_dc_band": "—"
+  },
+  {
+    "feature": "Volcanic Eruption",
+    "proficiency_dc_band": "Trained-legendary"
+  },
+  {
+    "feature": "Wall",
+    "proficiency_dc_band": "See entry"
+  },
+  {
+    "feature": "Wildfire",
+    "proficiency_dc_band": "Expert-legendary"
+  },
+  {
+    "feature": "Wind",
+    "proficiency_dc_band": "Untrained-legendary"
+  }
+]
