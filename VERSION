@@ -1,0 +1,5 @@
+CURRENT-DEV-2025-07-08
+Latest encounter generator: 1,648 lines
+Features: Encounter generation, loot generation, terrain filtering
+Server: Use v3/start-server.py for local development
+Status: Active development version - DO NOT ARCHIVE

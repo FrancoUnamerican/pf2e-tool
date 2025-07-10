@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
@@ -15,8 +15,11 @@
             <h1>Pathfinder 2E Character Creator</h1>
             <div class="subtitle">Create your legendary hero</div>
             <nav class="tabs">
-                <button class="tab-button active" data-tab="character-creator">Character Creator</button>
-                <button class="tab-button" data-tab="character-sheet">Character Sheet</button>
+                <button class="tab-button" data-tab="character-creator" style="display: none;">Character Creator</button>
+                <button class="tab-button active" data-tab="character-sheet">Character Sheet</button>
+                <button class="tab-button" data-tab="monster-viewer">Monster Viewer</button>
+                <button class="tab-button" data-tab="encounter-generator">Encounter Generator</button>
+                <button class="tab-button" data-tab="campaign-manager">Campaign Manager</button>
                 <button class="tab-button" data-tab="rules">Rules Reference</button>
                 <button class="tab-button" data-tab="tools">Tools & Dice</button>
             </nav>
@@ -24,94 +27,86 @@
 
         <main class="main-content">
             <!-- Character Creator Tab -->
-            <div id="character-creator" class="tab-content active">
+            <div id="character-creator" class="tab-content">
                 <div class="character-creator-container">
-                    <div class="creation-steps">
-                        <div class="step active" data-step="1">
-                            <span class="step-number">1</span>
-                            <span class="step-title">Ancestry</span>
-                        </div>
-                        <div class="step" data-step="2">
-                            <span class="step-number">2</span>
-                            <span class="step-title">Background</span>
-                        </div>
-                        <div class="step" data-step="3">
-                            <span class="step-number">3</span>
-                            <span class="step-title">Class</span>
-                        </div>
-                        <div class="step" data-step="4">
-                            <span class="step-number">4</span>
-                            <span class="step-title">Details</span>
-                        </div>
-                        <div class="step" data-step="5">
-                            <span class="step-number">5</span>
-                            <span class="step-title">Abilities</span>
-                        </div>
-                    </div>
-
-                    <div class="creation-content">
-                        <!-- Step 1: Ancestry Selection -->
-                        <div class="creation-step active" id="step-1">
-                            <h2>⚔️ Choose Your Ancestry</h2>
-                            <p class="step-description">Your ancestry determines your character's heritage, physical traits, and cultural background.</p>
-                            <div class="selection-grid" id="ancestry-grid">
-                                <div class="loading">Loading ancestries...</div>
+                    <!-- Left Panel with Dropdown Menus -->
+                    <aside class="character-selection-panel">
+                        <h3>🎭 Character Selection</h3>
+                        <div class="selection-controls">
+                            <div class="form-group">
+                                <label for="ancestry-dropdown">⚔️ Ancestry:</label>
+                                <select id="ancestry-dropdown">
+                                    <option value="">Select Ancestry</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="background-dropdown">📜 Background:</label>
+                                <select id="background-dropdown">
+                                    <option value="">Select Background</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="class-dropdown">🛡️ Class:</label>
+                                <select id="class-dropdown">
+                                    <option value="">Select Class</option>
+                                </select>
                             </div>
                         </div>
-
-                        <!-- Step 2: Background Selection -->
-                        <div class="creation-step" id="step-2">
-                            <h2>📜 Choose Your Background</h2>
-                            <p class="step-description">Your background represents your character's life before becoming an adventurer.</p>
-                            <div class="selection-grid" id="background-grid">
-                                <div class="loading">Loading backgrounds...</div>
+                        
+                        <!-- Character Details -->
+                        <div class="character-details">
+                            <h4>✨ Character Details</h4>
+                            <div class="form-group">
+                                <label for="char-name">Character Name:</label>
+                                <input type="text" id="char-name" placeholder="Enter your hero's name">
+                            </div>
+                            <div class="form-group">
+                                <label for="char-level">Starting Level:</label>
+                                <select id="char-level">
+                                    <option value="1">1st Level (Novice)</option>
+                                    <option value="2">2nd Level</option>
+                                    <option value="3">3rd Level</option>
+                                    <option value="4">4th Level</option>
+                                    <option value="5">5th Level</option>
+                                    <option value="6">6th Level</option>
+                                    <option value="7">7th Level</option>
+                                    <option value="8">8th Level</option>
+                                    <option value="9">9th Level</option>
+                                    <option value="10">10th Level (Expert)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="char-deity">Patron Deity (Optional):</label>
+                                <select id="char-deity">
+                                    <option value="">None / Agnostic</option>
+                                </select>
                             </div>
                         </div>
+                    </aside>
 
-                        <!-- Step 3: Class Selection -->
-                        <div class="creation-step" id="step-3">
-                            <h2>🛡️ Choose Your Class</h2>
-                            <p class="step-description">Your class defines your character's role in the party and primary abilities.</p>
-                            <div class="selection-grid" id="class-grid">
-                                <div class="loading">Loading classes...</div>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Character Details -->
-                        <div class="creation-step" id="step-4">
-                            <h2>✨ Character Details</h2>
-                            <p class="step-description">Add the finishing touches to your character's identity.</p>
-                            <div class="details-form">
-                                <div class="form-group">
-                                    <label for="char-name">Character Name:</label>
-                                    <input type="text" id="char-name" placeholder="Enter your hero's name">
+                    <!-- Main Content Area -->
+                    <div class="main-creation-area">
+                        <!-- Character Information Display -->
+                        <div class="character-info-display">
+                            <h2 id="selected-title">Select your character options</h2>
+                            <div class="info-content">
+                                <div id="ancestry-info" class="info-section" style="display: none;">
+                                    <h3>Ancestry Details</h3>
+                                    <div class="info-details"></div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="char-level">Starting Level:</label>
-                                    <select id="char-level">
-                                        <option value="1">1st Level (Novice)</option>
-                                        <option value="2">2nd Level</option>
-                                        <option value="3">3rd Level</option>
-                                        <option value="4">4th Level</option>
-                                        <option value="5">5th Level</option>
-                                        <option value="6">6th Level</option>
-                                        <option value="7">7th Level</option>
-                                        <option value="8">8th Level</option>
-                                        <option value="9">9th Level</option>
-                                        <option value="10">10th Level (Expert)</option>
-                                    </select>
+                                <div id="background-info" class="info-section" style="display: none;">
+                                    <h3>Background Details</h3>
+                                    <div class="info-details"></div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="char-deity">Patron Deity (Optional):</label>
-                                    <select id="char-deity">
-                                        <option value="">None / Agnostic</option>
-                                    </select>
+                                <div id="class-info" class="info-section" style="display: none;">
+                                    <h3>Class Details</h3>
+                                    <div class="info-details"></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Step 5: Ability Scores -->
-                        <div class="creation-step" id="step-5">
+                        <!-- Ability Scores -->
+                        <div class="ability-scores-section">
                             <h2>💪 Ability Scores</h2>
                             <p class="step-description">Distribute your character's fundamental attributes using the point-buy system.</p>
                             <div class="ability-scores-container">
@@ -194,55 +189,319 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Equipment Selection -->
+                        <div class="equipment-section">
+                            <h2>⚔️ Starting Equipment</h2>
+                            <p class="step-description">Choose your character's starting equipment based on their class.</p>
+                            <div class="equipment-container">
+                                <div class="equipment-category">
+                                    <h3>Weapons</h3>
+                                    <div id="weapon-list" class="equipment-list">
+                                        <!-- Populated by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="equipment-category">
+                                    <h3>Armor</h3>
+                                    <div id="armor-list" class="equipment-list">
+                                        <!-- Populated by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="equipment-category">
+                                    <h3>Tools & Gear</h3>
+                                    <div id="tools-list" class="equipment-list">
+                                        <!-- Populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Character Creation Controls -->
+                        <div class="creation-controls">
+                            <button id="finish-character" class="btn btn-success">🎯 Create Character</button>
+                        </div>
                     </div>
 
-                    <div class="creation-controls">
-                        <button id="prev-step" class="btn btn-secondary" disabled>⬅️ Previous</button>
-                        <div class="step-indicator">
-                            Step <span id="current-step">1</span> of 5
+                    <!-- Character Summary Panel -->
+                    <aside class="character-summary">
+                        <h3>⚡ Character Summary</h3>
+                        <div class="summary-content">
+                            <div class="summary-item">
+                                <label>Name:</label>
+                                <span id="summary-name">—</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Ancestry:</label>
+                                <span id="summary-ancestry">—</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Background:</label>
+                                <span id="summary-background">—</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Class:</label>
+                                <span id="summary-class">—</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Level:</label>
+                                <span id="summary-level">1</span>
+                            </div>
+                            <div class="summary-item">
+                                <label>Deity:</label>
+                                <span id="summary-deity">—</span>
+                            </div>
                         </div>
-                        <button id="next-step" class="btn btn-primary">Next ➡️</button>
-                        <button id="finish-character" class="btn btn-success" style="display: none;">🎯 Create Character</button>
-                    </div>
+                    </aside>
                 </div>
-
-                <!-- Character Summary Panel -->
-                <aside class="character-summary">
-                    <h3>⚡ Character Summary</h3>
-                    <div class="summary-content">
-                        <div class="summary-item">
-                            <label>Name:</label>
-                            <span id="summary-name">—</span>
-                        </div>
-                        <div class="summary-item">
-                            <label>Ancestry:</label>
-                            <span id="summary-ancestry">—</span>
-                        </div>
-                        <div class="summary-item">
-                            <label>Background:</label>
-                            <span id="summary-background">—</span>
-                        </div>
-                        <div class="summary-item">
-                            <label>Class:</label>
-                            <span id="summary-class">—</span>
-                        </div>
-                        <div class="summary-item">
-                            <label>Level:</label>
-                            <span id="summary-level">1</span>
-                        </div>
-                        <div class="summary-item">
-                            <label>Deity:</label>
-                            <span id="summary-deity">—</span>
-                        </div>
-                    </div>
-                </aside>
             </div>
 
             <!-- Character Sheet Tab -->
-            <div id="character-sheet" class="tab-content">
+            <div id="character-sheet" class="tab-content active">
                 <div class="character-sheet-container">
                     <h2>📋 Character Sheet</h2>
                     <p>Your completed characters will appear here once created.</p>
+                </div>
+            </div>
+
+            <!-- Monster Viewer Tab -->
+            <div id="monster-viewer" class="tab-content">
+                <div class="monster-viewer-container">
+                    
+                    <div class="monster-content">
+                        <!-- Left Panel: Monster List -->
+                        <div class="monster-list-panel">
+                            <div class="monster-list-header">
+                                <div class="list-header-top">
+                                    <h3>Monsters</h3>
+                                    <button id="select-books-btn" class="btn btn-secondary btn-compact">📚</button>
+                                </div>
+                                <div class="monster-search">
+                                    <input type="text" id="monster-search" placeholder="Search monsters..." />
+                                </div>
+                            </div>
+                            <div class="monster-list-container">
+                                <div id="monster-list" class="monster-list">
+                                    <p class="loading-monsters">Loading monsters...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: Monster Display -->
+                        <div id="monster-display" class="monster-statblock">
+                            <p class="no-monster-selected">Select a monster to view its statblock.</p>
+                        </div>
+                        
+                        <div id="monster-editor" class="monster-editor" style="display: none;">
+                            <h3>Edit Monster</h3>
+                            <form id="monster-edit-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="monster-name">Name:</label>
+                                        <input type="text" id="monster-name" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="monster-level">Level:</label>
+                                        <input type="number" id="monster-level" name="level" min="1" max="30" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="monster-ac">AC:</label>
+                                        <input type="number" id="monster-ac" name="ac" min="1" max="50" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="monster-hp">HP:</label>
+                                        <input type="number" id="monster-hp" name="hp" min="1" max="1000" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="monster-speed">Speed:</label>
+                                        <input type="number" id="monster-speed" name="speed" min="0" max="200" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="monster-rarity">Rarity:</label>
+                                        <select id="monster-rarity" name="rarity">
+                                            <option value="common">Common</option>
+                                            <option value="uncommon">Uncommon</option>
+                                            <option value="rare">Rare</option>
+                                            <option value="unique">Unique</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="ability-scores-editor">
+                                    <h4>Ability Scores</h4>
+                                    <div class="abilities-grid">
+                                        <div class="ability-input">
+                                            <label for="monster-str">STR:</label>
+                                            <input type="number" id="monster-str" name="str" min="-5" max="15" required>
+                                        </div>
+                                        <div class="ability-input">
+                                            <label for="monster-dex">DEX:</label>
+                                            <input type="number" id="monster-dex" name="dex" min="-5" max="15" required>
+                                        </div>
+                                        <div class="ability-input">
+                                            <label for="monster-con">CON:</label>
+                                            <input type="number" id="monster-con" name="con" min="-5" max="15" required>
+                                        </div>
+                                        <div class="ability-input">
+                                            <label for="monster-int">INT:</label>
+                                            <input type="number" id="monster-int" name="int" min="-5" max="15" required>
+                                        </div>
+                                        <div class="ability-input">
+                                            <label for="monster-wis">WIS:</label>
+                                            <input type="number" id="monster-wis" name="wis" min="-5" max="15" required>
+                                        </div>
+                                        <div class="ability-input">
+                                            <label for="monster-cha">CHA:</label>
+                                            <input type="number" id="monster-cha" name="cha" min="-5" max="15" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="monster-traits">Traits (comma-separated):</label>
+                                    <input type="text" id="monster-traits" name="traits" placeholder="e.g., undead, chaotic, ghoul">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="monster-languages">Languages (comma-separated):</label>
+                                    <input type="text" id="monster-languages" name="languages" placeholder="e.g., Common, Necril">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden edit buttons -->
+                    <div style="display: none;">
+                        <button id="edit-monster-btn" class="btn btn-primary">Edit Monster</button>
+                        <button id="save-monster-btn" class="btn btn-success">Save Changes</button>
+                        <button id="cancel-edit-btn" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Encounter Generator Tab -->
+            <div id="encounter-generator" class="tab-content">
+                <div class="encounter-generator-container">
+                    <header class="encounter-generator-header">
+                        <h2>⚔️ Encounter Generator</h2>
+                        <div class="encounter-controls">
+                            <div class="party-setup">
+                                <label for="party-level">Party Level:</label>
+                                <select id="party-level">
+                                    <option value="1">1st Level</option>
+                                    <option value="2">2nd Level</option>
+                                    <option value="3">3rd Level</option>
+                                    <option value="4">4th Level</option>
+                                    <option value="5" selected>5th Level</option>
+                                    <option value="6">6th Level</option>
+                                    <option value="7">7th Level</option>
+                                    <option value="8">8th Level</option>
+                                    <option value="9">9th Level</option>
+                                    <option value="10">10th Level</option>
+                                    <option value="11">11th Level</option>
+                                    <option value="12">12th Level</option>
+                                    <option value="13">13th Level</option>
+                                    <option value="14">14th Level</option>
+                                    <option value="15">15th Level</option>
+                                    <option value="16">16th Level</option>
+                                    <option value="17">17th Level</option>
+                                    <option value="18">18th Level</option>
+                                    <option value="19">19th Level</option>
+                                    <option value="20">20th Level</option>
+                                </select>
+                                
+                                <label for="party-size">Party Size:</label>
+                                <select id="party-size">
+                                    <option value="3">3 Players</option>
+                                    <option value="4" selected>4 Players</option>
+                                    <option value="5">5 Players</option>
+                                    <option value="6">6 Players</option>
+                                </select>
+                                
+                                <label for="encounter-difficulty">Difficulty:</label>
+                                <select id="encounter-difficulty">
+                                    <option value="trivial">Trivial</option>
+                                    <option value="low">Low</option>
+                                    <option value="moderate" selected>Moderate</option>
+                                    <option value="severe">Severe</option>
+                                    <option value="extreme">Extreme</option>
+                                </select>
+                                
+                                <label for="terrain-selector">🏔️ Terrain:</label>
+                                <select id="terrain-selector">
+                                    <option value="any">Any Terrain</option>
+                                    <option value="forest">🌲 Forest</option>
+                                    <option value="mountain">🏔️ Mountain</option>
+                                    <option value="desert">🏜️ Desert</option>
+                                    <option value="arctic">🧊 Arctic</option>
+                                    <option value="aquatic">🌊 Aquatic</option>
+                                    <option value="swamp">🐊 Swamp</option>
+                                    <option value="underground">🕳️ Underground</option>
+                                    <option value="urban">🏙️ Urban</option>
+                                    <option value="plains">🌾 Plains</option>
+                                    <option value="coastal">🏖️ Coastal</option>
+                                    <option value="volcanic">🌋 Volcanic</option>
+                                </select>
+                                
+                                <label for="monster-variant">⚔️ Monster Variants:</label>
+                                <select id="monster-variant">
+                                    <option value="mixed">Mixed (Weak/Normal/Elite)</option>
+                                    <option value="weak">Weak Only (-2 Level)</option>
+                                    <option value="normal">Normal Only</option>
+                                    <option value="elite">Elite Only (+2 Level)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="encounter-buttons">
+                                <button id="generate-encounter-btn" class="btn btn-primary">🎲 Generate Encounter</button>
+                                <button id="generate-loot-btn" class="btn btn-success">💰 Generate Loot</button>
+                                <button id="save-encounter-btn" class="btn btn-info" style="display: none;">📚 Save to Campaign</button>
+                                <button id="clear-encounter-btn" class="btn btn-secondary">🗑️ Clear</button>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <div class="encounter-content">
+                        <!-- Left Panel: Encounter Results -->
+                        <div class="encounter-results-panel">
+                            <div class="encounter-summary">
+                                <h3>Current Encounter</h3>
+                                <div id="encounter-xp-budget" class="xp-budget">
+                                    <span class="budget-label">XP Budget:</span>
+                                    <span class="budget-value">120 XP</span>
+                                </div>
+                                <div id="encounter-difficulty-display" class="difficulty-display">
+                                    <span class="difficulty-label">Difficulty:</span>
+                                    <span class="difficulty-value moderate">Moderate</span>
+                                </div>
+                            </div>
+                            
+                            <div class="encounter-monsters">
+                                <h4>Monsters in Encounter</h4>
+                                <div id="encounter-monster-list" class="encounter-monster-list">
+                                    <p class="no-encounter">Click "Generate Encounter" to create a random encounter.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="encounter-loot">
+                                <div id="encounter-loot-display" class="loot-display">
+                                    <p class="no-loot">Generate an encounter and click "Generate Loot" to see treasure.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Panel: Monster Details -->
+                        <div class="encounter-monster-details">
+                            <div id="encounter-monster-display" class="monster-details-display">
+                                <p class="no-monster-details">Select a monster from the encounter to view its details.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -289,6 +548,401 @@
                                 <div class="ability-info">
                                     <h4>🗣️ Charisma</h4>
                                     <p>Social skills, leadership</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rule-section">
+                            <h3>⚡ Watches and Rest</h3>
+                            <div class="table-container">
+                                <table class="rules-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Group Size</th>
+                                            <th>Total Time</th>
+                                            <th>Duration of Each Watch</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>2</td><td>16 hours</td><td>8 hours</td></tr>
+                                        <tr><td>3</td><td>12 hours</td><td>4 hours</td></tr>
+                                        <tr><td>4</td><td>10 hours, 40 minutes</td><td>2 hours, 40 minutes</td></tr>
+                                        <tr><td>5</td><td>10 hours</td><td>2 hours</td></tr>
+                                        <tr><td>6</td><td>9 hours, 36 minutes</td><td>1 hour, 36 minutes</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="rule-section">
+                            <h3>💰 Cost of Living</h3>
+                            <div class="table-container">
+                                <table class="rules-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Standard of Living</th>
+                                            <th>Week</th>
+                                            <th>Month</th>
+                                            <th>Year</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Subsistence*</td><td>4 sp</td><td>2 gp</td><td>24 gp</td></tr>
+                                        <tr><td>Comfortable</td><td>1 gp</td><td>4 gp</td><td>52 gp</td></tr>
+                                        <tr><td>Fine</td><td>30 gp</td><td>130 gp</td><td>1,600 gp</td></tr>
+                                        <tr><td>Extravagant</td><td>100 gp</td><td>430 gp</td><td>5,200 gp</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="rule-section">
+                            <h3>🎯 DC Adjustments</h3>
+                            <div class="table-container">
+                                <table class="rules-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Difficulty</th>
+                                            <th>Adjustment</th>
+                                            <th>Rarity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Incredibly easy</td><td>-10</td><td>—</td></tr>
+                                        <tr><td>Very easy</td><td>-5</td><td>—</td></tr>
+                                        <tr><td>Easy</td><td>-2</td><td>—</td></tr>
+                                        <tr><td>Hard</td><td>+2</td><td>Uncommon</td></tr>
+                                        <tr><td>Very hard</td><td>+5</td><td>Rare</td></tr>
+                                        <tr><td>Incredibly hard</td><td>+10</td><td>Unique</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="rule-section">
+                            <h3>🔍 Creature Identification Skills</h3>
+                            <div class="table-container">
+                                <table class="rules-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Creature Trait</th>
+                                            <th>Skills</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Aberration</td><td>Occultism</td></tr>
+                                        <tr><td>Animal</td><td>Nature</td></tr>
+                                        <tr><td>Astral</td><td>Occultism</td></tr>
+                                        <tr><td>Beast</td><td>Arcana, Nature</td></tr>
+                                        <tr><td>Celestial</td><td>Religion</td></tr>
+                                        <tr><td>Construct</td><td>Arcana, Crafting</td></tr>
+                                        <tr><td>Dragon</td><td>Arcana</td></tr>
+                                        <tr><td>Elemental</td><td>Arcana, Nature</td></tr>
+                                        <tr><td>Fey</td><td>Nature</td></tr>
+                                        <tr><td>Fiend</td><td>Religion</td></tr>
+                                        <tr><td>Humanoid</td><td>Society</td></tr>
+                                        <tr><td>Undead</td><td>Religion</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="rule-section">
+                            <h3>🏆 XP Awards</h3>
+                            <div class="table-container">
+                                <h4>Accomplishments</h4>
+                                <table class="rules-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Accomplishment</th>
+                                            <th>XP Award</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Minor</td><td>10 XP</td></tr>
+                                        <tr><td>Moderate*</td><td>30 XP</td></tr>
+                                        <tr><td>Major*</td><td>80 XP</td></tr>
+                                    </tbody>
+                                </table>
+                                <p><small>*Typically earns a Hero Point as well</small></p>
+                            </div>
+                        </div>
+
+                        <div class="rule-section">
+                            <h3>💰 Table 5-3: Treasure by Encounter</h3>
+                            <div class="table-container">
+                                <table class="rules-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Level</th>
+                                            <th>Total Treasure per Level</th>
+                                            <th>Low</th>
+                                            <th>Moderate</th>
+                                            <th>Severe</th>
+                                            <th>Extreme</th>
+                                            <th>Extra Treasure</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>1</td><td>175 gp</td><td>13 gp</td><td>18 gp</td><td>26 gp</td><td>35 gp</td><td>35 gp</td></tr>
+                                        <tr><td>2</td><td>300 gp</td><td>23 gp</td><td>30 gp</td><td>45 gp</td><td>60 gp</td><td>60 gp</td></tr>
+                                        <tr><td>3</td><td>500 gp</td><td>38 gp</td><td>50 gp</td><td>75 gp</td><td>100 gp</td><td>100 gp</td></tr>
+                                        <tr><td>4</td><td>850 gp</td><td>65 gp</td><td>85 gp</td><td>130 gp</td><td>170 gp</td><td>170 gp</td></tr>
+                                        <tr><td>5</td><td>1,350 gp</td><td>100 gp</td><td>135 gp</td><td>200 gp</td><td>270 gp</td><td>270 gp</td></tr>
+                                        <tr><td>6</td><td>2,000 gp</td><td>150 gp</td><td>200 gp</td><td>300 gp</td><td>400 gp</td><td>400 gp</td></tr>
+                                        <tr><td>7</td><td>2,900 gp</td><td>220 gp</td><td>290 gp</td><td>440 gp</td><td>580 gp</td><td>580 gp</td></tr>
+                                        <tr><td>8</td><td>4,000 gp</td><td>300 gp</td><td>400 gp</td><td>600 gp</td><td>800 gp</td><td>800 gp</td></tr>
+                                        <tr><td>9</td><td>5,700 gp</td><td>430 gp</td><td>570 gp</td><td>860 gp</td><td>1,140 gp</td><td>1,140 gp</td></tr>
+                                        <tr><td>10</td><td>8,000 gp</td><td>600 gp</td><td>800 gp</td><td>1,200 gp</td><td>1,600 gp</td><td>1,600 gp</td></tr>
+                                        <tr><td>11</td><td>11,500 gp</td><td>865 gp</td><td>1,150 gp</td><td>1,725 gp</td><td>2,300 gp</td><td>2,300 gp</td></tr>
+                                        <tr><td>12</td><td>16,500 gp</td><td>1,250 gp</td><td>1,650 gp</td><td>2,475 gp</td><td>3,300 gp</td><td>3,300 gp</td></tr>
+                                        <tr><td>13</td><td>25,000 gp</td><td>1,875 gp</td><td>2,500 gp</td><td>3,750 gp</td><td>5,000 gp</td><td>5,000 gp</td></tr>
+                                        <tr><td>14</td><td>36,500 gp</td><td>2,750 gp</td><td>3,650 gp</td><td>5,500 gp</td><td>7,300 gp</td><td>7,300 gp</td></tr>
+                                        <tr><td>15</td><td>54,500 gp</td><td>4,100 gp</td><td>5,450 gp</td><td>8,200 gp</td><td>10,900 gp</td><td>10,900 gp</td></tr>
+                                        <tr><td>16</td><td>82,500 gp</td><td>6,200 gp</td><td>8,250 gp</td><td>12,400 gp</td><td>16,500 gp</td><td>16,500 gp</td></tr>
+                                        <tr><td>17</td><td>128,000 gp</td><td>9,600 gp</td><td>12,800 gp</td><td>19,200 gp</td><td>25,600 gp</td><td>25,600 gp</td></tr>
+                                        <tr><td>18</td><td>208,000 gp</td><td>15,600 gp</td><td>20,800 gp</td><td>31,200 gp</td><td>41,600 gp</td><td>41,600 gp</td></tr>
+                                        <tr><td>19</td><td>355,000 gp</td><td>26,600 gp</td><td>35,500 gp</td><td>53,250 gp</td><td>71,000 gp</td><td>71,000 gp</td></tr>
+                                        <tr><td>20</td><td>490,000 gp</td><td>36,800 gp</td><td>49,000 gp</td><td>73,500 gp</td><td>98,000 gp</td><td>98,000 gp</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="rule-section">
+                            <h3>🚶 Travel Speed</h3>
+                            <div class="table-container">
+                                <table class="rules-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Speed</th>
+                                            <th>Feet per Minute</th>
+                                            <th>Miles per Hour</th>
+                                            <th>Miles per Day</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>10 feet</td><td>100</td><td>1</td><td>8</td></tr>
+                                        <tr><td>15 feet</td><td>150</td><td>1-1/2</td><td>12</td></tr>
+                                        <tr><td>20 feet</td><td>200</td><td>2</td><td>16</td></tr>
+                                        <tr><td>25 feet</td><td>250</td><td>2-1/2</td><td>20</td></tr>
+                                        <tr><td>30 feet</td><td>300</td><td>3</td><td>24</td></tr>
+                                        <tr><td>35 feet</td><td>350</td><td>3-1/2</td><td>28</td></tr>
+                                        <tr><td>40 feet</td><td>400</td><td>4</td><td>32</td></tr>
+                                        <tr><td>50 feet</td><td>500</td><td>5</td><td>40</td></tr>
+                                        <tr><td>60 feet</td><td>600</td><td>6</td><td>48</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campaign Manager Tab -->
+            <div id="campaign-manager" class="tab-content">
+                <div class="campaign-manager-container">
+                    <header class="campaign-manager-header">
+                        <h2>📚 Campaign Manager</h2>
+                        <div class="campaign-controls">
+                            <div class="current-campaign">
+                                <label>Current Campaign:</label>
+                                <select id="campaign-selector">
+                                    <option value="">No Campaign Selected</option>
+                                </select>
+                                <button id="new-campaign-btn" class="btn btn-primary">New Campaign</button>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="campaign-content">
+                        <div id="no-campaign-message" class="no-campaign-message">
+                            <h3>🎯 Welcome to Campaign Manager!</h3>
+                            <p>Create a new campaign to start tracking your encounters, loot, and party progress.</p>
+                            <button id="create-first-campaign-btn" class="btn btn-primary btn-large">Create Your First Campaign</button>
+                        </div>
+
+                        <div id="campaign-dashboard" class="campaign-dashboard" style="display: none;">
+                            <div class="campaign-info">
+                                <h3 id="campaign-title">Campaign Name</h3>
+                                <div class="campaign-stats">
+                                    <div class="stat-card">
+                                        <span class="stat-label">Party Level</span>
+                                        <span class="stat-value" id="party-level-display">1</span>
+                                    </div>
+                                    <div class="stat-card">
+                                        <span class="stat-label">Party Size</span>
+                                        <span class="stat-value" id="party-size-display">4</span>
+                                    </div>
+                                    <div class="stat-card">
+                                        <span class="stat-label">Encounters</span>
+                                        <span class="stat-value" id="encounter-count">0</span>
+                                    </div>
+                                    <div class="stat-card">
+                                        <span class="stat-label">Total Loot Value</span>
+                                        <span class="stat-value" id="total-loot-value">0 gp</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="campaign-tabs">
+                                <button class="campaign-tab-button active" data-tab="encounters">Encounters</button>
+                                <button class="campaign-tab-button" data-tab="loot">Loot</button>
+                                <button class="campaign-tab-button" data-tab="analytics">Analytics</button>
+                                <button class="campaign-tab-button" data-tab="settings">Settings</button>
+                            </div>
+
+                            <div class="campaign-tab-content">
+                                <!-- Encounters Tab -->
+                                <div id="encounters" class="campaign-tab-panel active">
+                                    <div class="panel-header">
+                                        <h4>📋 Encounter History</h4>
+                                        <div class="panel-controls">
+                                            <input type="search" id="encounter-search" placeholder="Search encounters...">
+                                            <select id="encounter-filter">
+                                                <option value="">All Difficulties</option>
+                                                <option value="trivial">Trivial</option>
+                                                <option value="low">Low</option>
+                                                <option value="moderate">Moderate</option>
+                                                <option value="severe">Severe</option>
+                                                <option value="extreme">Extreme</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="encounter-history" class="history-list">
+                                        <div class="no-data">No encounters recorded yet.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Loot Tab -->
+                                <div id="loot" class="campaign-tab-panel">
+                                    <div class="panel-header">
+                                        <h4>💰 Loot History</h4>
+                                        <div class="panel-controls">
+                                            <input type="search" id="loot-search" placeholder="Search loot...">
+                                            <select id="loot-filter">
+                                                <option value="">All Types</option>
+                                                <option value="treasure">Treasure</option>
+                                                <option value="equipment">Equipment</option>
+                                                <option value="consumables">Consumables</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="loot-history" class="history-list">
+                                        <div class="no-data">No loot recorded yet.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Analytics Tab -->
+                                <div id="analytics" class="campaign-tab-panel">
+                                    <div class="panel-header">
+                                        <h4>📊 Campaign Analytics</h4>
+                                    </div>
+                                    <div class="analytics-grid">
+                                        <div class="analytics-card">
+                                            <h5>Encounter Difficulty Distribution</h5>
+                                            <div id="difficulty-chart" class="chart-container"></div>
+                                        </div>
+                                        <div class="analytics-card">
+                                            <h5>Wealth Progression</h5>
+                                            <div id="wealth-chart" class="chart-container"></div>
+                                        </div>
+                                        <div class="analytics-card">
+                                            <h5>Most Used Monsters</h5>
+                                            <div id="monster-usage" class="chart-container"></div>
+                                        </div>
+                                        <div class="analytics-card">
+                                            <h5>Terrain Preferences</h5>
+                                            <div id="terrain-usage" class="chart-container"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Settings Tab -->
+                                <div id="settings" class="campaign-tab-panel">
+                                    <div class="panel-header">
+                                        <h4>⚙️ Campaign Settings</h4>
+                                    </div>
+                                    <div class="settings-grid">
+                                        <div class="setting-group">
+                                            <h5>Campaign Details</h5>
+                                            <div class="form-group">
+                                                <label for="campaign-name-edit">Campaign Name:</label>
+                                                <input type="text" id="campaign-name-edit" placeholder="Enter campaign name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="campaign-party-level">Party Level:</label>
+                                                <input type="number" id="campaign-party-level" min="1" max="20" value="1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="campaign-party-size">Party Size:</label>
+                                                <input type="number" id="campaign-party-size" min="1" max="8" value="4">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="campaign-notes">Campaign Notes:</label>
+                                                <textarea id="campaign-notes" placeholder="Add notes about your campaign..."></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Party Roles:</label>
+                                                <div class="party-roles-checkboxes">
+                                                    <div class="role-checkbox">
+                                                        <input type="checkbox" id="role-melee-tank" name="party-roles" value="melee-tank">
+                                                        <label for="role-melee-tank">🛡️ Melee Tank</label>
+                                                    </div>
+                                                    <div class="role-checkbox">
+                                                        <input type="checkbox" id="role-melee-dps" name="party-roles" value="melee-dps">
+                                                        <label for="role-melee-dps">⚔️ Melee DPS</label>
+                                                    </div>
+                                                    <div class="role-checkbox">
+                                                        <input type="checkbox" id="role-range-dps" name="party-roles" value="range-dps">
+                                                        <label for="role-range-dps">🏹 Range DPS</label>
+                                                    </div>
+                                                    <div class="role-checkbox">
+                                                        <input type="checkbox" id="role-range-util" name="party-roles" value="range-util">
+                                                        <label for="role-range-util">🎯 Range Utility</label>
+                                                    </div>
+                                                    <div class="role-checkbox">
+                                                        <input type="checkbox" id="role-caster-dps" name="party-roles" value="caster-dps">
+                                                        <label for="role-caster-dps">🔥 Caster DPS</label>
+                                                    </div>
+                                                    <div class="role-checkbox">
+                                                        <input type="checkbox" id="role-caster-util" name="party-roles" value="caster-util">
+                                                        <label for="role-caster-util">🔮 Caster Utility</label>
+                                                    </div>
+                                                    <div class="role-checkbox">
+                                                        <input type="checkbox" id="role-caster-healer" name="party-roles" value="caster-healer">
+                                                        <label for="role-caster-healer">💚 Caster Healer</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="setting-group">
+                                            <h5>Party Characters</h5>
+                                            <div class="character-management">
+                                                <div class="form-group">
+                                                    <label for="character-json-upload">Load Character (JSON):</label>
+                                                    <input type="file" id="character-json-upload" accept=".json" multiple>
+                                                    <small>Select one or more character JSON files to add to this campaign</small>
+                                                </div>
+                                                <div id="loaded-characters" class="loaded-characters">
+                                                    <h6>Party Characters:</h6>
+                                                    <div id="character-list" class="character-list">
+                                                        <p class="no-characters">No characters loaded</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="setting-group">
+                                            <h5>Data Management</h5>
+                                            <div class="action-buttons">
+                                                <button id="save-campaign-btn" class="btn btn-primary">Save Changes</button>
+                                                <button id="export-campaign-btn" class="btn btn-secondary">Export Campaign</button>
+                                                <button id="import-campaign-btn" class="btn btn-secondary">Import Campaign</button>
+                                                <button id="delete-campaign-btn" class="btn btn-danger">Delete Campaign</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -340,8 +994,51 @@
         </main>
     </div>
 
+    <!-- Book Selection Modal -->
+    <div id="book-selection-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📚 Select Monster Books</h2>
+                <button class="modal-close" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="book-filters">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Categories</button>
+                        <button class="filter-btn" data-filter="Core Books">Core Books</button>
+                        <button class="filter-btn" data-filter="Lost Omens">Lost Omens</button>
+                        <button class="filter-btn" data-filter="Pathfinder Society">Pathfinder Society</button>
+                        <button class="filter-btn" data-filter="Adventure Paths">Adventure Paths</button>
+                    </div>
+                </div>
+                
+                <div class="book-categories">
+                    <!-- Categories will be populated by JavaScript -->
+                </div>
+                
+                <div class="modal-actions">
+                    <div class="selected-count">
+                        <span id="selected-books-count">0 books selected</span>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="select-all-btn" class="btn btn-secondary">Select All Visible</button>
+                        <button id="clear-all-btn" class="btn btn-secondary">Clear All</button>
+                        <button id="load-selected-btn" class="btn btn-primary">Load Selected Books</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="shared-data/rules-data.js"></script>
+    <script src="js/text-parser.js?v=1.2"></script>
     <script src="js/data-loader.js"></script>
     <script src="js/character-creator.js"></script>
+    <script src="js/monster-data.js"></script>
+    <script src="js/monster-viewer.js"></script>
+    <script src="js/loot-generator.js"></script>
+    <script src="js/encounter-generator.js"></script>
+    <script src="js/campaign-manager.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

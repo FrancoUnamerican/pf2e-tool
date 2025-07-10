@@ -32,55 +32,23 @@ class DataLoader {
     }
 
     async loadAncestries() {
-        try {
-            const response = await fetch('./shared-data/packs/ancestries.json');
-            if (response.ok) {
-                const data = await response.json();
-                this.data.ancestries = Array.isArray(data) ? data : [];
-            }
-        } catch (error) {
-            console.warn('Could not load ancestries.json, trying individual files');
-            await this.loadFromFolder('ancestries');
-        }
+        console.log('Loading ancestries from individual files...');
+        await this.loadFromFolder('ancestries');
     }
 
     async loadBackgrounds() {
-        try {
-            const response = await fetch('./shared-data/packs/backgrounds.json');
-            if (response.ok) {
-                const data = await response.json();
-                this.data.backgrounds = Array.isArray(data) ? data : [];
-            }
-        } catch (error) {
-            console.warn('Could not load backgrounds.json, trying individual files');
-            await this.loadFromFolder('backgrounds');
-        }
+        console.log('Loading backgrounds from individual files...');
+        await this.loadFromFolder('backgrounds');
     }
 
     async loadClasses() {
-        try {
-            const response = await fetch('./shared-data/packs/classes.json');
-            if (response.ok) {
-                const data = await response.json();
-                this.data.classes = Array.isArray(data) ? data : [];
-            }
-        } catch (error) {
-            console.warn('Could not load classes.json, trying individual files');
-            await this.loadFromFolder('classes');
-        }
+        console.log('Loading classes from individual files...');
+        await this.loadFromFolder('classes');
     }
 
     async loadDeities() {
-        try {
-            const response = await fetch('./shared-data/packs/deities.json');
-            if (response.ok) {
-                const data = await response.json();
-                this.data.deities = Array.isArray(data) ? data : [];
-            }
-        } catch (error) {
-            console.warn('Could not load deities.json, trying individual files');
-            await this.loadFromFolder('deities');
-        }
+        console.log('Loading deities from individual files...');
+        await this.loadFromFolder('deities');
     }
 
     async loadHeritages() {
@@ -89,6 +57,9 @@ class DataLoader {
             if (response.ok) {
                 const data = await response.json();
                 this.data.heritages = Array.isArray(data) ? data : [];
+            } else {
+                console.warn('Could not load heritages.json, trying individual files');
+                await this.loadFromFolder('heritages');
             }
         } catch (error) {
             console.warn('Could not load heritages.json, trying individual files');
@@ -102,6 +73,9 @@ class DataLoader {
             if (response.ok) {
                 const data = await response.json();
                 this.data.feats = Array.isArray(data) ? data : [];
+            } else {
+                console.warn('Could not load feats.json, trying individual files');
+                await this.loadFromFolder('feats');
             }
         } catch (error) {
             console.warn('Could not load feats.json, trying individual files');
@@ -115,6 +89,9 @@ class DataLoader {
             if (response.ok) {
                 const data = await response.json();
                 this.data.classFeatures = Array.isArray(data) ? data : [];
+            } else {
+                console.warn('Could not load class-features.json, trying individual files');
+                await this.loadFromFolder('class-features');
             }
         } catch (error) {
             console.warn('Could not load class-features.json, trying individual files');
@@ -128,6 +105,9 @@ class DataLoader {
             if (response.ok) {
                 const data = await response.json();
                 this.data.spells = Array.isArray(data) ? data : [];
+            } else {
+                console.warn('Could not load spells.json, trying individual files');
+                await this.loadFromFolder('spells');
             }
         } catch (error) {
             console.warn('Could not load spells.json, trying individual files');
@@ -137,25 +117,145 @@ class DataLoader {
 
     async loadFromFolder(packName) {
         try {
-            const folderResponse = await fetch(`./shared-data/packs/${packName}/`);
-            if (!folderResponse.ok) {
-                console.warn(`Could not access ${packName} folder`);
+            // Get actual file list from the directory structure
+            const filePatterns = {
+                ancestries: [
+                    'human.json', 'elf.json', 'dwarf.json', 'halfling.json', 'gnome.json', 'goblin.json',
+                    'orc.json', 'hobgoblin.json', 'lizardfolk.json', 'catfolk.json', 'ratfolk.json',
+                    'tengu.json', 'kobold.json', 'leshy.json', 'poppet.json', 'fetchling.json',
+                    'fleshwarp.json', 'kitsune.json', 'sprite.json', 'strix.json',
+                    'azarketi.json', 'android.json', 'automaton.json', 'conrasu.json', 'kashrishi.json',
+                    'nagaji.json', 'shoony.json', 'vanara.json', 'vishkanya.json', 'anadi.json',
+                    'goloma.json', 'shisk.json', 'surki.json', 'yaoguai.json', 'yaksha.json',
+                    'wayang.json', 'tripkee.json', 'tanuki.json', 'samsaran.json', 'sarangay.json',
+                    'skeleton.json', 'minotaur.json', 'merfolk.json', 'kholo.json', 'centaur.json',
+                    'ghoran.json', 'awakened-animal.json', 'athamaru.json'
+                ],
+                classes: [
+                    'alchemist.json', 'barbarian.json', 'bard.json', 'champion.json', 'cleric.json',
+                    'druid.json', 'fighter.json', 'gunslinger.json', 'inventor.json', 'investigator.json',
+                    'kineticist.json', 'magus.json', 'monk.json', 'oracle.json', 'psychic.json',
+                    'ranger.json', 'rogue.json', 'sorcerer.json', 'summoner.json', 'swashbuckler.json',
+                    'thaumaturge.json', 'witch.json', 'wizard.json', 'animist.json', 'exemplar.json'
+                ],
+                backgrounds: [
+                    'acolyte.json', 'acrobat.json', 'animal-whisperer.json', 'artisan.json', 'artist.json',
+                    'barkeep.json', 'barrister.json', 'bounty-hunter.json', 'charlatan.json', 'criminal.json',
+                    'detective.json', 'entertainer.json', 'farmhand.json', 'field-medic.json', 'folk-hero.json',
+                    'fortune-teller.json', 'gambler.json', 'gladiator.json', 'guard.json', 'herbalist.json',
+                    'hermit.json', 'hunter.json', 'laborer.json', 'merchant.json', 'miner.json',
+                    'noble.json', 'nomad.json', 'prisoner.json', 'sailor.json', 'scholar.json',
+                    'scout.json', 'street-urchin.json', 'tinker.json', 'warrior.json'
+                ],
+                deities: [
+                    // Core gods
+                    'core-gods/abadar.json', 'core-gods/asmodeus.json', 'core-gods/calistria.json', 'core-gods/cayden-cailean.json', 
+                    'core-gods/desna.json', 'core-gods/erastil.json', 'core-gods/gozreh.json', 'core-gods/iomedae.json', 
+                    'core-gods/irori.json', 'core-gods/lamashtu.json', 'core-gods/nethys.json', 'core-gods/norgorber.json', 
+                    'core-gods/pharasma.json', 'core-gods/rovagug.json', 'core-gods/sarenrae.json', 'core-gods/shelyn.json', 
+                    'core-gods/torag.json', 'core-gods/urgathoa.json', 'core-gods/zon-kuthon.json', 'core-gods/arazni.json',
+                    // Other popular gods
+                    'other-gods/besmara.json', 'other-gods/brigh.json', 'other-gods/chaldira.json', 'other-gods/dahak.json',
+                    'other-gods/ghlaunder.json', 'other-gods/groetus.json', 'other-gods/hanspur.json', 'other-gods/kurgess.json',
+                    'other-gods/milani.json', 'other-gods/naderi.json', 'other-gods/nocticula.json', 'other-gods/sivanah.json',
+                    'other-gods/tsukiyo.json', 'other-gods/shizuru.json', 'other-gods/zyphus.json',
+                    // Empyreal Lords
+                    'empyreal-lords/ragathiel.json', 'empyreal-lords/korada.json', 'empyreal-lords/pulura.json',
+                    'empyreal-lords/black-butterfly.json', 'empyreal-lords/dammerich.json'
+                ]
+            };
+
+            const filesToTry = filePatterns[packName] || [];
+            
+            // Skip loading for complex directory structures that need special handling
+            if (['heritages', 'feats', 'class-features', 'spells'].includes(packName) && filesToTry.length === 0) {
+                console.warn(`Skipping ${packName} - complex directory structure not yet supported`);
                 return;
             }
-
-            // This is a simplified approach - in a real app, you'd need to list files in the directory
-            // For now, we'll use some common file patterns
-            const commonFiles = [
-                'human.json', 'elf.json', 'dwarf.json', 'halfling.json', 'gnome.json', 'goblin.json',
-                'fighter.json', 'wizard.json', 'rogue.json', 'cleric.json', 'ranger.json', 'barbarian.json',
-                'acolyte.json', 'criminal.json', 'folk-hero.json', 'merchant.json', 'noble.json', 'scholar.json'
-            ];
-
-            const loadPromises = commonFiles.map(async (fileName) => {
+            
+            const loadPromises = filesToTry.map(async (fileName) => {
                 try {
-                    const response = await fetch(`./shared-data/packs/${packName}/${fileName}`);
-                    if (response.ok) {
-                        return await response.json();
+                    // Try multiple path variations to ensure compatibility
+                    const paths = [
+                        `./shared-data/packs/${packName}/${fileName}`,
+                        `shared-data/packs/${packName}/${fileName}`,
+                        `/shared-data/packs/${packName}/${fileName}`
+                    ];
+                    
+                    let data = null;
+                    for (const path of paths) {
+                        try {
+                            const response = await fetch(path);
+                            if (response.ok) {
+                                data = await response.json();
+                                break;
+                            }
+                        } catch (e) {
+                            // Continue to next path
+                        }
+                    }
+                    
+                    if (data) {
+                        // Process the data to match our expected format
+                        const processedData = {
+                            id: data._id || fileName.replace('.json', ''),
+                            name: data.name,
+                            description: data.system?.description?.value || data.description || 'No description available',
+                            traits: data.system?.traits?.value || data.traits || [],
+                            abilityBoosts: [],
+                            abilityFlaws: [],
+                            languages: [],
+                            size: data.system?.size?.value || data.size || 'Medium',
+                            speed: data.system?.attributes?.speed?.value || data.system?.speed || data.speed || 25
+                        };
+                        
+                        // Add class-specific properties
+                        if (packName === 'classes') {
+                            processedData.keyAbility = data.system?.keyAbility?.value || data.keyAbility || [];
+                            processedData.hitPoints = data.system?.hp || data.hitPoints || 8;
+                            processedData.skills = data.system?.trainedSkills?.value || data.skills || [];
+                            processedData.perception = data.system?.perception || 0;
+                            processedData.classDC = data.system?.classDC || 0;
+                            processedData.savingThrows = data.system?.savingThrows || {};
+                            processedData.attacks = data.system?.attacks || {};
+                            processedData.defenses = data.system?.defenses || {};
+                        }
+                        
+                        // Add deity-specific properties
+                        if (packName === 'deities') {
+                            processedData.alignment = data.system?.alignment?.own || data.alignment || 'N';
+                            processedData.domains = data.system?.domains || data.domains || [];
+                            processedData.font = data.system?.font || data.font || [];
+                            processedData.weapons = data.system?.weapons || data.weapons || [];
+                            processedData.skill = data.system?.skill || data.skill || [];
+                        }
+                        
+                        // Process ability boosts from the complex structure
+                        if (data.system?.boosts) {
+                            Object.values(data.system.boosts).forEach(boost => {
+                                if (boost.value && Array.isArray(boost.value)) {
+                                    processedData.abilityBoosts.push(...boost.value);
+                                }
+                            });
+                        }
+                        
+                        // Process ability flaws
+                        if (data.system?.flaws) {
+                            Object.values(data.system.flaws).forEach(flaw => {
+                                if (flaw.value && Array.isArray(flaw.value)) {
+                                    processedData.abilityFlaws.push(...flaw.value);
+                                }
+                            });
+                        }
+                        
+                        // Process languages
+                        if (data.system?.languages) {
+                            if (data.system.languages.value && Array.isArray(data.system.languages.value)) {
+                                processedData.languages.push(...data.system.languages.value);
+                            }
+                        }
+                        
+                        return processedData;
                     }
                 } catch (error) {
                     // File doesn't exist, skip it
@@ -168,6 +268,7 @@ class DataLoader {
             
             if (validResults.length > 0) {
                 this.data[packName] = validResults;
+                console.log(`Loaded ${validResults.length} ${packName} from individual files`);
             }
         } catch (error) {
             console.error(`Error loading from ${packName} folder:`, error);
@@ -209,6 +310,7 @@ class DataLoader {
 
     // Create sample data if no data is loaded
     createSampleData() {
+        console.log('createSampleData called - current ancestries:', this.data.ancestries.length);
         if (this.data.ancestries.length === 0) {
             this.data.ancestries = [
                 {

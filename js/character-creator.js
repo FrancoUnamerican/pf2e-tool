@@ -20,20 +20,25 @@ class CharacterCreator {
             pointsRemaining: 10
         };
         this.initializeEventListeners();
+        this.loadAllData();
+        this.clearEquipment();
     }
 
     initializeEventListeners() {
-        // Step navigation
-        document.getElementById('next-step').addEventListener('click', () => this.nextStep());
-        document.getElementById('prev-step').addEventListener('click', () => this.prevStep());
+        // Character creation finish button
         document.getElementById('finish-character').addEventListener('click', () => this.finishCharacter());
 
-        // Step buttons
-        document.querySelectorAll('.step').forEach(step => {
-            step.addEventListener('click', () => {
-                const stepNum = parseInt(step.dataset.step);
-                this.goToStep(stepNum);
-            });
+        // Dropdown selections
+        document.getElementById('ancestry-dropdown').addEventListener('change', (e) => {
+            this.selectAncestry(e.target.value);
+        });
+        
+        document.getElementById('background-dropdown').addEventListener('change', (e) => {
+            this.selectBackground(e.target.value);
+        });
+        
+        document.getElementById('class-dropdown').addEventListener('change', (e) => {
+            this.selectClass(e.target.value);
         });
 
         // Ability score controls
@@ -48,175 +53,189 @@ class CharacterCreator {
         // Character name input
         document.getElementById('char-name').addEventListener('input', (e) => {
             this.character.name = e.target.value;
-            this.updateSummary();
         });
 
         // Level selection
         document.getElementById('char-level').addEventListener('change', (e) => {
             this.character.level = parseInt(e.target.value);
-            this.updateSummary();
         });
 
         // Deity selection
         document.getElementById('char-deity').addEventListener('change', (e) => {
             this.character.deity = e.target.value || null;
-            this.updateSummary();
         });
     }
-
-    async loadStepData() {
-        switch (this.currentStep) {
-            case 1:
-                await this.loadAncestries();
-                break;
-            case 2:
-                await this.loadBackgrounds();
-                break;
-            case 3:
-                await this.loadClasses();
-                break;
-            case 4:
-                await this.loadDeities();
-                break;
-            case 5:
-                this.updateAbilityScores();
-                break;
+    
+    async loadAllData() {
+        try {
+            // Wait for dataLoader to finish loading
+            await dataLoader.loadAllData();
+            
+            // Populate dropdowns
+            await this.populateDropdowns();
+            
+            console.log('Character creator data loaded successfully');
+        } catch (error) {
+            console.error('Error loading character creator data:', error);
+            // Fallback to sample data
+            dataLoader.createSampleData();
+            await this.populateDropdowns();
         }
     }
-
-    async loadAncestries() {
-        const grid = document.getElementById('ancestry-grid');
+    
+    async populateDropdowns() {
+        // Populate ancestry dropdown
+        const ancestrySelect = document.getElementById('ancestry-dropdown');
         const ancestries = dataLoader.getAncestries();
-        
-        if (ancestries.length === 0) {
-            dataLoader.createSampleData();
-        }
-
-        const ancestryList = dataLoader.getAncestries();
-        grid.innerHTML = '';
-
-        ancestryList.forEach(ancestry => {
-            const card = this.createSelectionCard(ancestry, 'ancestry');
-            grid.appendChild(card);
-        });
-    }
-
-    async loadBackgrounds() {
-        const grid = document.getElementById('background-grid');
-        const backgrounds = dataLoader.getBackgrounds();
-        
-        if (backgrounds.length === 0) {
-            dataLoader.createSampleData();
-        }
-
-        const backgroundList = dataLoader.getBackgrounds();
-        grid.innerHTML = '';
-
-        backgroundList.forEach(background => {
-            const card = this.createSelectionCard(background, 'background');
-            grid.appendChild(card);
-        });
-    }
-
-    async loadClasses() {
-        const grid = document.getElementById('class-grid');
-        const classes = dataLoader.getClasses();
-        
-        if (classes.length === 0) {
-            dataLoader.createSampleData();
-        }
-
-        const classList = dataLoader.getClasses();
-        grid.innerHTML = '';
-
-        classList.forEach(charClass => {
-            const card = this.createSelectionCard(charClass, 'class');
-            grid.appendChild(card);
-        });
-    }
-
-    async loadDeities() {
-        const select = document.getElementById('char-deity');
-        const deities = dataLoader.getDeities();
-        
-        if (deities.length === 0) {
-            dataLoader.createSampleData();
-        }
-
-        const deityList = dataLoader.getDeities();
-        
-        // Clear existing options (except "None")
-        select.innerHTML = '<option value="">None</option>';
-
-        deityList.forEach(deity => {
+        ancestrySelect.innerHTML = '<option value="">Select Ancestry</option>';
+        ancestries.forEach(ancestry => {
             const option = document.createElement('option');
-            option.value = deity.name;
+            option.value = ancestry.id;
+            option.textContent = ancestry.name;
+            ancestrySelect.appendChild(option);
+        });
+        
+        // Populate background dropdown
+        const backgroundSelect = document.getElementById('background-dropdown');
+        const backgrounds = dataLoader.getBackgrounds();
+        backgroundSelect.innerHTML = '<option value="">Select Background</option>';
+        backgrounds.forEach(background => {
+            const option = document.createElement('option');
+            option.value = background.id;
+            option.textContent = background.name;
+            backgroundSelect.appendChild(option);
+        });
+        
+        // Populate class dropdown
+        const classSelect = document.getElementById('class-dropdown');
+        const classes = dataLoader.getClasses();
+        classSelect.innerHTML = '<option value="">Select Class</option>';
+        classes.forEach(charClass => {
+            const option = document.createElement('option');
+            option.value = charClass.id;
+            option.textContent = charClass.name;
+            classSelect.appendChild(option);
+        });
+        
+        // Populate deity dropdown
+        const deitySelect = document.getElementById('char-deity');
+        const deities = dataLoader.getDeities();
+        deitySelect.innerHTML = '<option value="">None / Agnostic</option>';
+        deities.forEach(deity => {
+            const option = document.createElement('option');
+            option.value = deity.id;
             option.textContent = `${deity.name} (${deity.alignment})`;
-            select.appendChild(option);
+            deitySelect.appendChild(option);
         });
     }
-
-    createSelectionCard(item, type) {
-        const card = document.createElement('div');
-        card.className = 'selection-card';
-        card.dataset.type = type;
-        card.dataset.name = item.name;
-
-        let traits = '';
-        if (item.traits) {
-            traits = `<div class="traits">${item.traits.map(trait => `<span class="trait">${trait}</span>`).join('')}</div>`;
+    
+    selectAncestry(ancestryId) {
+        if (!ancestryId) {
+            this.character.ancestry = null;
+            document.getElementById('ancestry-info').style.display = 'none';
+            return;
         }
-
-        let additionalInfo = '';
-        if (type === 'ancestry') {
-            additionalInfo = `
-                <p><strong>Size:</strong> ${item.size || 'Medium'}</p>
-                <p><strong>Speed:</strong> ${item.speed || 25} feet</p>
-                <p><strong>Ability Boosts:</strong> ${item.abilityBoosts ? item.abilityBoosts.join(', ') : 'None'}</p>
-                ${item.abilityFlaws && item.abilityFlaws.length > 0 ? `<p><strong>Ability Flaws:</strong> ${item.abilityFlaws.join(', ')}</p>` : ''}
-            `;
-        } else if (type === 'background') {
-            additionalInfo = `
-                <p><strong>Ability Boosts:</strong> ${item.abilityBoosts ? item.abilityBoosts.join(', ') : 'None'}</p>
-                <p><strong>Skills:</strong> ${item.skills ? item.skills.join(', ') : 'None'}</p>
-            `;
-        } else if (type === 'class') {
-            additionalInfo = `
-                <p><strong>Key Ability:</strong> ${item.keyAbility}</p>
-                <p><strong>Hit Points:</strong> ${item.hitPoints} + Con modifier</p>
-                <p><strong>Skills:</strong> ${item.skills}</p>
-            `;
+        
+        const ancestry = dataLoader.getAncestries().find(a => a.id === ancestryId);
+        if (ancestry) {
+            this.character.ancestry = ancestry;
+            this.displayAncestryInfo(ancestry);
+            this.applyAncestryModifiers(ancestry);
         }
-
-        card.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>${item.description}</p>
-            ${additionalInfo}
-            ${traits}
+    }
+    
+    selectBackground(backgroundId) {
+        if (!backgroundId) {
+            this.character.background = null;
+            document.getElementById('background-info').style.display = 'none';
+            return;
+        }
+        
+        const background = dataLoader.getBackgrounds().find(b => b.id === backgroundId);
+        if (background) {
+            this.character.background = background;
+            this.displayBackgroundInfo(background);
+        }
+    }
+    
+    selectClass(classId) {
+        if (!classId) {
+            this.character.class = null;
+            document.getElementById('class-info').style.display = 'none';
+            this.clearEquipment();
+            return;
+        }
+        
+        const charClass = dataLoader.getClasses().find(c => c.id === classId);
+        if (charClass) {
+            this.character.class = charClass;
+            this.displayClassInfo(charClass);
+            this.updateEquipment(charClass.name);
+        }
+    }
+    
+    displayAncestryInfo(ancestry) {
+        const infoSection = document.getElementById('ancestry-info');
+        const detailsDiv = infoSection.querySelector('.info-details');
+        
+        // Parse description with text parser if available
+        let description = ancestry.description;
+        if (window.pf2eTextParser && description) {
+            description = window.pf2eTextParser.parseText(description);
+        }
+        
+        detailsDiv.innerHTML = `
+            <p><strong>Size:</strong> ${ancestry.size || 'Medium'}</p>
+            <p><strong>Speed:</strong> ${ancestry.speed || 25} feet</p>
+            <p><strong>Ability Boosts:</strong> ${ancestry.abilityBoosts.length ? ancestry.abilityBoosts.join(', ') : 'None'}</p>
+            ${ancestry.abilityFlaws.length ? `<p><strong>Ability Flaws:</strong> ${ancestry.abilityFlaws.join(', ')}</p>` : ''}
+            <p><strong>Languages:</strong> ${ancestry.languages.length ? ancestry.languages.join(', ') : 'None'}</p>
+            <p><strong>Traits:</strong> ${ancestry.traits.length ? ancestry.traits.join(', ') : 'None'}</p>
+            <div class="parsed-content">${description}</div>
         `;
-
-        card.addEventListener('click', () => this.selectItem(item, type, card));
-
-        return card;
+        
+        infoSection.style.display = 'block';
     }
-
-    selectItem(item, type, cardElement) {
-        // Remove previous selection
-        document.querySelectorAll(`.selection-card[data-type="${type}"]`).forEach(card => {
-            card.classList.remove('selected');
-        });
-
-        // Add selection to clicked card
-        cardElement.classList.add('selected');
-
-        // Update character data
-        this.character[type] = item;
-        this.updateSummary();
-
-        // Apply ability score modifiers if ancestry
-        if (type === 'ancestry') {
-            this.applyAncestryModifiers(item);
+    
+    displayBackgroundInfo(background) {
+        const infoSection = document.getElementById('background-info');
+        const detailsDiv = infoSection.querySelector('.info-details');
+        
+        // Parse description with text parser if available
+        let description = background.description;
+        if (window.pf2eTextParser && description) {
+            description = window.pf2eTextParser.parseText(description);
         }
+        
+        detailsDiv.innerHTML = `
+            <p><strong>Ability Boosts:</strong> ${background.abilityBoosts.length ? background.abilityBoosts.join(', ') : 'None'}</p>
+            <p><strong>Skills:</strong> ${background.skills ? background.skills.join(', ') : 'None'}</p>
+            <p><strong>Traits:</strong> ${background.traits.length ? background.traits.join(', ') : 'None'}</p>
+            <div class="parsed-content">${description}</div>
+        `;
+        
+        infoSection.style.display = 'block';
+    }
+    
+    displayClassInfo(charClass) {
+        const infoSection = document.getElementById('class-info');
+        const detailsDiv = infoSection.querySelector('.info-details');
+        
+        // Parse description with text parser if available
+        let description = charClass.description;
+        if (window.pf2eTextParser && description) {
+            description = window.pf2eTextParser.parseText(description);
+        }
+        
+        detailsDiv.innerHTML = `
+            <p><strong>Key Ability:</strong> ${Array.isArray(charClass.keyAbility) ? charClass.keyAbility.join(' or ') : (charClass.keyAbility || 'None')}</p>
+            <p><strong>Hit Points:</strong> ${charClass.hitPoints || 8} + Con modifier</p>
+            <p><strong>Skills:</strong> ${Array.isArray(charClass.skills) ? charClass.skills.join(', ') : (charClass.skills || 'None')}</p>
+            <p><strong>Traits:</strong> ${charClass.traits.length ? charClass.traits.join(', ') : 'None'}</p>
+            <div class="parsed-content">${description}</div>
+        `;
+        
+        infoSection.style.display = 'block';
     }
 
     applyAncestryModifiers(ancestry) {
@@ -292,8 +311,11 @@ class CharacterCreator {
             const score = this.character.abilityScores[ability];
             const modifier = Math.floor((score - 10) / 2);
             
-            document.getElementById(`${ability}-score`).textContent = score;
-            document.getElementById(`${ability}-modifier`).textContent = modifier >= 0 ? `+${modifier}` : `${modifier}`;
+            const scoreElement = document.getElementById(`${ability}-score`);
+            const modifierElement = document.getElementById(`${ability}-modifier`);
+            
+            if (scoreElement) scoreElement.textContent = score;
+            if (modifierElement) modifierElement.textContent = modifier >= 0 ? `+${modifier}` : `${modifier}`;
         });
 
         // Update button states
@@ -309,156 +331,107 @@ class CharacterCreator {
                 btn.disabled = current <= 8;
             }
         });
-    }
 
-    nextStep() {
-        if (this.currentStep < this.totalSteps) {
-            this.currentStep++;
-            this.updateStepDisplay();
-            this.loadStepData();
+        // Update points remaining display
+        const pointsElement = document.getElementById('points-remaining');
+        if (pointsElement) {
+            pointsElement.textContent = this.character.pointsRemaining;
         }
-    }
-
-    prevStep() {
-        if (this.currentStep > 1) {
-            this.currentStep--;
-            this.updateStepDisplay();
-            this.loadStepData();
-        }
-    }
-
-    goToStep(stepNum) {
-        if (stepNum >= 1 && stepNum <= this.totalSteps) {
-            this.currentStep = stepNum;
-            this.updateStepDisplay();
-            this.loadStepData();
-        }
-    }
-
-    updateStepDisplay() {
-        // Update step indicators
-        document.querySelectorAll('.step').forEach(step => {
-            const stepNum = parseInt(step.dataset.step);
-            step.classList.toggle('active', stepNum === this.currentStep);
-        });
-
-        // Update step content
-        document.querySelectorAll('.creation-step').forEach(step => {
-            const stepNum = parseInt(step.id.split('-')[1]);
-            step.classList.toggle('active', stepNum === this.currentStep);
-        });
-
-        // Update button states
-        document.getElementById('prev-step').disabled = this.currentStep === 1;
-        document.getElementById('next-step').style.display = this.currentStep === this.totalSteps ? 'none' : 'inline-block';
-        document.getElementById('finish-character').style.display = this.currentStep === this.totalSteps ? 'inline-block' : 'none';
     }
 
     updateSummary() {
-        document.getElementById('summary-name').textContent = this.character.name || '-';
-        document.getElementById('summary-ancestry').textContent = this.character.ancestry ? this.character.ancestry.name : '-';
-        document.getElementById('summary-background').textContent = this.character.background ? this.character.background.name : '-';
-        document.getElementById('summary-class').textContent = this.character.class ? this.character.class.name : '-';
-        document.getElementById('summary-level').textContent = this.character.level;
+        // Character summary has been removed from the character creator
+        // Summary is now handled by the character sheet tab
     }
 
     finishCharacter() {
-        // Validate character is complete
-        if (!this.character.name) {
-            alert('Please enter a character name.');
+        // Validate character creation
+        if (!this.character.name || !this.character.ancestry || !this.character.background || !this.character.class) {
+            alert('Please complete all required character selections.');
             return;
         }
-
-        if (!this.character.ancestry) {
-            alert('Please select an ancestry.');
-            return;
-        }
-
-        if (!this.character.background) {
-            alert('Please select a background.');
-            return;
-        }
-
-        if (!this.character.class) {
-            alert('Please select a class.');
-            return;
-        }
-
-        // Save character data
-        this.saveCharacter();
-        
-        // Switch to character sheet tab
-        this.switchToCharacterSheet();
-    }
-
-    saveCharacter() {
-        const characterData = {
-            ...this.character,
-            dateCreated: new Date().toISOString(),
-            id: Date.now().toString()
-        };
-
-        // Save to localStorage
-        const savedCharacters = JSON.parse(localStorage.getItem('pf2e-characters') || '[]');
-        savedCharacters.push(characterData);
-        localStorage.setItem('pf2e-characters', JSON.stringify(savedCharacters));
-
-        console.log('Character saved:', characterData);
-    }
-
-    switchToCharacterSheet() {
-        // Hide all tab content
-        document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.classList.remove('active');
-        });
 
         // Show character sheet tab
-        document.getElementById('character-sheet').classList.add('active');
-
-        // Update tab buttons
-        document.querySelectorAll('.tab-button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.querySelector('[data-tab="character-sheet"]').classList.add('active');
-
-        // Display character data in character sheet
-        this.displayCharacterSheet();
+        document.querySelector('[data-tab="character-sheet"]').click();
+        
+        // Populate character sheet with created character
+        this.populateCharacterSheet();
+        
+        console.log('Character created:', this.character);
     }
 
-    displayCharacterSheet() {
-        const container = document.querySelector('.character-sheet-container');
-        container.innerHTML = `
-            <h2>Character Sheet</h2>
-            <div class="character-details">
-                <h3>${this.character.name}</h3>
-                <p><strong>Ancestry:</strong> ${this.character.ancestry.name}</p>
-                <p><strong>Background:</strong> ${this.character.background.name}</p>
-                <p><strong>Class:</strong> ${this.character.class.name}</p>
-                <p><strong>Level:</strong> ${this.character.level}</p>
-                ${this.character.deity ? `<p><strong>Deity:</strong> ${this.character.deity}</p>` : ''}
-                
-                <h4>Ability Scores</h4>
-                <div class="ability-scores-display">
-                    ${Object.entries(this.character.abilityScores).map(([ability, score]) => {
-                        const modifier = Math.floor((score - 10) / 2);
-                        const abilityName = {
-                            str: 'Strength',
-                            dex: 'Dexterity',
-                            con: 'Constitution',
-                            int: 'Intelligence',
-                            wis: 'Wisdom',
-                            cha: 'Charisma'
-                        }[ability];
-                        return `<p><strong>${abilityName}:</strong> ${score} (${modifier >= 0 ? '+' : ''}${modifier})</p>`;
-                    }).join('')}
+    populateCharacterSheet() {
+        // This would populate the character sheet with the created character data
+        // Implementation depends on the character sheet structure
+        console.log('Populating character sheet with:', this.character);
+    }
+
+    updateEquipment(className) {
+        if (!className || !window.EquipmentData) return;
+        
+        const equipment = window.EquipmentData.getStarterEquipment(className);
+        
+        // Update weapons
+        const weaponList = document.getElementById('weapon-list');
+        if (weaponList && equipment.weapons) {
+            weaponList.innerHTML = equipment.weapons.map(weapon => `
+                <div class="equipment-item">
+                    <div class="equipment-name">${weapon.name}</div>
+                    <div class="equipment-stats">
+                        <span class="equipment-damage">${weapon.damage}</span>
+                        <span class="equipment-category">${weapon.category}</span>
+                    </div>
+                    <div class="equipment-traits">
+                        ${weapon.traits.map(trait => `<span class="trait-tag">${trait}</span>`).join('')}
+                    </div>
                 </div>
-            </div>
-        `;
+            `).join('');
+        }
+        
+        // Update armor
+        const armorList = document.getElementById('armor-list');
+        if (armorList && equipment.armor) {
+            armorList.innerHTML = equipment.armor.map(armor => `
+                <div class="equipment-item">
+                    <div class="equipment-name">${armor.name}</div>
+                    <div class="equipment-stats">
+                        <span class="equipment-ac">AC ${armor.ac}</span>
+                        <span class="equipment-category">${armor.category}</span>
+                    </div>
+                    <div class="equipment-details">
+                        <span>Dex Cap: ${armor.dexCap}</span>
+                        <span>Check: ${armor.checkPenalty}</span>
+                        <span>Speed: ${armor.speedPenalty}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Update tools
+        const toolsList = document.getElementById('tools-list');
+        if (toolsList && equipment.tools) {
+            toolsList.innerHTML = equipment.tools.map(tool => `
+                <div class="equipment-item">
+                    <div class="equipment-name">${tool.name}</div>
+                    <div class="equipment-category">${tool.category}</div>
+                    <div class="equipment-description">${tool.description}</div>
+                </div>
+            `).join('');
+        }
+    }
+
+    clearEquipment() {
+        const weaponList = document.getElementById('weapon-list');
+        const armorList = document.getElementById('armor-list');
+        const toolsList = document.getElementById('tools-list');
+        
+        if (weaponList) weaponList.innerHTML = '<p>Select a class to see available weapons.</p>';
+        if (armorList) armorList.innerHTML = '<p>Select a class to see available armor.</p>';
+        if (toolsList) toolsList.innerHTML = '<p>Select a class to see available tools.</p>';
     }
 }
 
 // Initialize character creator when DOM is loaded
-let characterCreator;
 document.addEventListener('DOMContentLoaded', () => {
-    characterCreator = new CharacterCreator();
+    window.characterCreator = new CharacterCreator();
 });
